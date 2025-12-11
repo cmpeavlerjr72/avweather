@@ -1,0 +1,2365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+    <style>
+    .leaflet-pane.polys_mid { pointer-events: none; }  /* let marker clicks pass through */
+    </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_75161e23df413fef84e1b4fea6f35d36 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_75161e23df413fef84e1b4fea6f35d36" ></div>
+        
+    
+    <div style="
+        position: fixed;
+        bottom: 14px; left: 14px;
+        z-index: 10000;
+        background: rgba(255,255,255,0.95);
+        padding: 10px 12px;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0,0,0,.25);
+        font: 12px/1.3 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        max-width: 320px;">
+      <div style="font-weight:600; margin-bottom:6px;">Route Summary: KMSP → KDEN</div>
+      <div><b>PIREPs (Turb):</b> LGT 13 · MOD 3 · SEV 1</div>
+      <div><b>PIREPs (Icing):</b> LGT 5 · MOD 2 · SEV 0</div>
+      <div><b>Flight Levels:</b> FL40–FL450</div>
+      <div><b>Active Advisories:</b> SIGMET 2 · G-AIRMET 13</div>
+      <div style="margin-top:6px; color:#666;">Tip: toggle layers (top-right); click PIREP/METAR dots for details.</div>
+    </div>
+    
+    
+            <div style="
+                position: fixed; top: 14px; left: 14px; z-index: 10000;
+                background: rgba(255,255,255,0.97); padding: 12px 14px; border-radius: 10px;
+                box-shadow: 0 4px 16px rgba(0,0,0,.25);
+                font: 13px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,Arial;">
+            <div style="font-weight:600; margin-bottom:6px;">Captain-style Briefing (not the operating crew)</div>
+            <div style="max-width: 460px; max-height: 260px; overflow:auto;"><p>Passengers can expect a smooth journey from Minneapolis-St. Paul to Denver, with an estimated flight time of approximately 107 minutes. En route, light turbulence may be experienced at various points, including around 2 minutes, 23 minutes, and near the 80-minute mark. These changes in air movement are common during flights and the aircraft is designed to handle them safely. Adjustments to altitude and speed are made as needed to maintain comfort.</p><p>Icing conditions may also occur briefly during the flight, particularly in the first 40 minutes. Modern aircraft are equipped with advanced anti-ice systems to manage these situations effectively, ensuring safety and comfort throughout the ride. Flight crews continuously monitor conditions using onboard weather radar and collaborate with air traffic control to navigate around significant weather advisories as necessary. This proactive management helps to enhance passenger experience and safety. Enjoy the flight.</p></div>
+
+            </div>
+            
+</body>
+<script>
+    
+    
+            var map_75161e23df413fef84e1b4fea6f35d36 = L.map(
+                "map_75161e23df413fef84e1b4fea6f35d36",
+                {
+                    center: [42.51401121951813, -99.17727295569327],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3a9f34054d2c7af7673332ff7ba1a9a7 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_3a9f34054d2c7af7673332ff7ba1a9a7.addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+            map_75161e23df413fef84e1b4fea6f35d36.fitBounds(
+                [[38.7921121496168, -105.60960932730421], [45.92445528608412, -92.46407107533697]],
+                {"padding": [20, 20]}
+            );
+        
+    
+            var pane_f32f5e094713ae4d67448ec77f545685 = map_75161e23df413fef84e1b4fea6f35d36.createPane(
+                "points_top");
+            pane_f32f5e094713ae4d67448ec77f545685.style.zIndex = 650;
+            
+                pane_f32f5e094713ae4d67448ec77f545685.style.pointerEvents = 'none';
+            
+        
+    
+            var pane_0141eddd443f11527b7f6673f25989a3 = map_75161e23df413fef84e1b4fea6f35d36.createPane(
+                "polys_mid");
+            pane_0141eddd443f11527b7f6673f25989a3.style.zIndex = 620;
+            
+                pane_0141eddd443f11527b7f6673f25989a3.style.pointerEvents = 'none';
+            
+        
+    
+            var poly_line_7a6f8d6e25184756db946e9700a60f28 = L.polyline(
+                [[44.8848, -93.2223], [44.51166893878868, -94.24751358629969], [44.129428073971056, -95.25957036056901], [43.73831147473564, -96.25850763349062], [43.33855088830238, -97.24438312342576], [42.9303754152056, -98.21727350038512], [42.51401121951813, -99.17727295569327], [42.08968127259569, -100.12449180549922], [41.65760512878729, -101.05905513500828], [41.21799873145699, -101.98110148910773], [40.77107424759391, -102.89078161394028], [40.31703992924647, -103.78825725295114], [39.8561, -104.67370000000001]],
+                {"bubblingMouseEvents": true, "color": "#b02b2b", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#b02b2b", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.95, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+            poly_line_7a6f8d6e25184756db946e9700a60f28.bindTooltip(
+                `<div>
+                     KMSP → KDEN
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+        function geo_json_0dd5c6c7668e72c1f56a927c992b84bc_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#2b6cb0", "dashArray": "6,4", "fillColor": null, "fillOpacity": 0.0, "opacity": 0.6, "weight": 1};
+            }
+        }
+
+        function geo_json_0dd5c6c7668e72c1f56a927c992b84bc_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_0dd5c6c7668e72c1f56a927c992b84bc = L.geoJson(null, {
+                onEachFeature: geo_json_0dd5c6c7668e72c1f56a927c992b84bc_onEachFeature,
+            
+                style: geo_json_0dd5c6c7668e72c1f56a927c992b84bc_styler,
+            ...{
+}
+        });
+
+        function geo_json_0dd5c6c7668e72c1f56a927c992b84bc_add (data) {
+            geo_json_0dd5c6c7668e72c1f56a927c992b84bc
+                .addData(data);
+        }
+            geo_json_0dd5c6c7668e72c1f56a927c992b84bc_add({"features": [{"geometry": {"coordinates": [[[-93.48002447896903, 43.449541055032775], [-94.47386102319577, 43.06745183069], [-95.45505499760321, 42.67648868278506], [-96.4236590063075, 42.27688319203439], [-97.37974397341112, 41.86886429888953], [-98.32339778271725, 41.452658013825584], [-99.25472394826791, 41.02848716109903], [-100.17384032230953, 40.596571154438664], [-101.08087784622003, 40.1571258030053], [-101.97597934880444, 39.71036314591721], [-102.85929839546426, 39.25649131356355], [-103.7377906726958, 38.7921121496168], [-105.60960932730421, 40.90384527623259], [-104.71721611043799, 41.36118841592355], [-103.80558387907608, 41.81511909837039], [-102.88132513199541, 42.261939860378405], [-101.94426994770701, 42.70144252164727], [-100.9942596627305, 43.13341499365505], [-100.03114812866926, 43.55764141839018], [-99.05480302735911, 43.973902333892546], [-98.06510724054398, 44.3819748683459], [-97.06196026937802, 44.78163296445529], [-96.04527969794226, 45.172647635745385], [-95.01500269363034, 45.554787256342024], [-93.98052892466303, 45.92445528608412], [-92.46407107533697, 43.82601017727694], [-93.48002447896903, 43.449541055032775]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_0dd5c6c7668e72c1f56a927c992b84bc.addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+            var marker_3ff778125e467cdf65fe8b4f1265aa1b = L.marker(
+                [44.8848, -93.2223],
+                {
+}
+            ).addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+        var popup_172ce159b641aaafb3504027945ec946 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_6291121e884b0bd5cc2153ea9745c1e8 = $(`<div id="html_6291121e884b0bd5cc2153ea9745c1e8" style="width: 100.0%; height: 100.0%;"><b>KMSP</b> — Minneapolis–Saint Paul Intl<br><pre style='white-space:pre-wrap'>SPECI KMSP 112257Z 11003KT 1 3/4SM -SN OVC028 M08/M11 A3000 RMK AO2 TWR VIS 2 P0000 T10781106 </pre><br><b>TAF</b><br><pre style='white-space:pre-wrap'>TAF KMSP 112047Z 1121/1224 13003KT P6SM SCT015 BKN080 FM120700 28004KT P6SM BKN020 PROB30 1212/1215 3SM -SN BR BKN012 FM121500 29010KT P6SM OVC015 FM121800 30012G22KT P6SM BKN020</pre></div>`)[0];
+                popup_172ce159b641aaafb3504027945ec946.setContent(html_6291121e884b0bd5cc2153ea9745c1e8);
+            
+        
+
+        marker_3ff778125e467cdf65fe8b4f1265aa1b.bindPopup(popup_172ce159b641aaafb3504027945ec946)
+        ;
+
+        
+    
+    
+            marker_3ff778125e467cdf65fe8b4f1265aa1b.bindTooltip(
+                `<div>
+                     KMSP (Origin)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_7a6839e3bd824da87fa27a29f25d1ea0 = L.marker(
+                [39.8561, -104.67370000000001],
+                {
+}
+            ).addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+        var popup_e6825b22211e0f32e5f3ecd6e5948d92 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_53d0ed7a8856c6f3038f5a1fe3b31b8a = $(`<div id="html_53d0ed7a8856c6f3038f5a1fe3b31b8a" style="width: 100.0%; height: 100.0%;"><b>KDEN</b> — Denver Intl<br><pre style='white-space:pre-wrap'>METAR KDEN 112253Z 26013KT 10SM SCT150 BKN220 16/M10 A2992 RMK AO2 SLP077 ACSL DSNT S-W-N T01561100</pre><br><b>TAF</b><br><pre style='white-space:pre-wrap'>TAF KDEN 112056Z 1121/1224 27020G37KT P6SM BKN180 FM112300 27016G25KT P6SM BKN180 FM120300 25013KT P6SM BKN180 FM120900 12010KT P6SM SCT180 FM121400 19007KT P6SM SCT180 FM121700 28014G24KT P6SM SCT180 FM122300 27010KT P6SM SCT200</pre></div>`)[0];
+                popup_e6825b22211e0f32e5f3ecd6e5948d92.setContent(html_53d0ed7a8856c6f3038f5a1fe3b31b8a);
+            
+        
+
+        marker_7a6839e3bd824da87fa27a29f25d1ea0.bindPopup(popup_e6825b22211e0f32e5f3ecd6e5948d92)
+        ;
+
+        
+    
+    
+            marker_7a6839e3bd824da87fa27a29f25d1ea0.bindTooltip(
+                `<div>
+                     KDEN (Destination)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var feature_group_bb1fbaf3126ed09d048a501a42bdc2fe = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_19f1ce4692f76a6b4525399b226faccc = L.circleMarker(
+                [44.8852, -93.2313],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_e81f75f4608d4dcc9dc7b11cc07dbd15 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_1dc55740cbbbf7d5df083a9b19b7f035 = $(`<div id="html_1dc55740cbbbf7d5df083a9b19b7f035" style="width: 100.0%; height: 100.0%;"><b>KMSP</b> — Minneapolis-St Paul Intl, MN, US<br><b>Flight Cat:</b> IFR<br><pre style='white-space:pre-wrap'>SPECI KMSP 112257Z 11003KT 1 3/4SM -SN OVC028 M08/M11 A3000 RMK AO2 TWR VIS 2 P0000 T10781106 </pre></div>`)[0];
+                popup_e81f75f4608d4dcc9dc7b11cc07dbd15.setContent(html_1dc55740cbbbf7d5df083a9b19b7f035);
+            
+        
+
+        circle_marker_19f1ce4692f76a6b4525399b226faccc.bindPopup(popup_e81f75f4608d4dcc9dc7b11cc07dbd15)
+        ;
+
+        
+    
+    
+            var circle_marker_29511d689482c2b24e0ff3217ab478a3 = L.circleMarker(
+                [40.4427, -105.0097],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_4486463b88917d8daef9e95769261f53 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_88303719526983ce9825f9f40ae40e5b = $(`<div id="html_88303719526983ce9825f9f40ae40e5b" style="width: 100.0%; height: 100.0%;"><b>KFNL</b> — Fort Collins/N Colorado Rgnl, CO, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KFNL 112256Z 36017G23KT 10SM CLR 19/M10 A2989 RMK AO2 PK WND 35027/2157 SLP076 T01891100 $</pre></div>`)[0];
+                popup_4486463b88917d8daef9e95769261f53.setContent(html_88303719526983ce9825f9f40ae40e5b);
+            
+        
+
+        circle_marker_29511d689482c2b24e0ff3217ab478a3.bindPopup(popup_4486463b88917d8daef9e95769261f53)
+        ;
+
+        
+    
+    
+            var circle_marker_18b7e1953a9c71fa54477e79945ba10b = L.circleMarker(
+                [43.5775, -96.7539],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_9c8db20b2b1bab9f110688e2919382ad = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_a754aa66612dcc52c350ead5563f50a5 = $(`<div id="html_a754aa66612dcc52c350ead5563f50a5" style="width: 100.0%; height: 100.0%;"><b>KFSD</b> — Sioux Falls/Foss Fld, SD, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KFSD 112256Z 10005KT 3SM -SN BR OVC042 M07/M09 A2987 RMK AO2 SLP140 P0001 T10721089</pre></div>`)[0];
+                popup_9c8db20b2b1bab9f110688e2919382ad.setContent(html_a754aa66612dcc52c350ead5563f50a5);
+            
+        
+
+        circle_marker_18b7e1953a9c71fa54477e79945ba10b.bindPopup(popup_9c8db20b2b1bab9f110688e2919382ad)
+        ;
+
+        
+    
+    
+            var circle_marker_ecb57338b86bef8b60b2b742e6b4abab = L.circleMarker(
+                [41.9799, -97.4335],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_4dbfd6b109a2a0c1103c1b745e0111de = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_8364aa28b793a8fa80563d4e06eb7c7c = $(`<div id="html_8364aa28b793a8fa80563d4e06eb7c7c" style="width: 100.0%; height: 100.0%;"><b>KOFK</b> — Norfolk/Stefan Mem, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KOFK 112256Z AUTO 11004KT 10SM FEW024 FEW035 M01/M05 A2980 RMK AO2 SLP111 T10061050</pre></div>`)[0];
+                popup_4dbfd6b109a2a0c1103c1b745e0111de.setContent(html_8364aa28b793a8fa80563d4e06eb7c7c);
+            
+        
+
+        circle_marker_ecb57338b86bef8b60b2b742e6b4abab.bindPopup(popup_4dbfd6b109a2a0c1103c1b745e0111de)
+        ;
+
+        
+    
+    
+            var circle_marker_e879afdb3257a38a5415dd58acb83e07 = L.circleMarker(
+                [43.6525, -95.5759],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_d26a8fb2abf48c05394c41a5a69b8345 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ec85066066c23840ade0f760a8f018d0 = $(`<div id="html_ec85066066c23840ade0f760a8f018d0" style="width: 100.0%; height: 100.0%;"><b>KOTG</b> — Worthington Muni, MN, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KOTG 112256Z AUTO 08011KT 8SM -SN OVC017 M08/M10 A2989 RMK AO2 SLP155 P0000 T10831100 FZRANO</pre></div>`)[0];
+                popup_d26a8fb2abf48c05394c41a5a69b8345.setContent(html_ec85066066c23840ade0f760a8f018d0);
+            
+        
+
+        circle_marker_e879afdb3257a38a5415dd58acb83e07.bindPopup(popup_d26a8fb2abf48c05394c41a5a69b8345)
+        ;
+
+        
+    
+    
+            var circle_marker_2b0bb261721a3d30f7af948cc4e92226 = L.circleMarker(
+                [44.2184, -93.9179],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_f96067beb7ca2fed6bc23109eabb2b90 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_6cc189268b9b15d0ea9fed6baee3a6c8 = $(`<div id="html_6cc189268b9b15d0ea9fed6baee3a6c8" style="width: 100.0%; height: 100.0%;"><b>KMKT</b> — Mankato Rgnl, MN, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KMKT 112256Z AUTO 07005KT 10SM OVC055 M07/M09 A2997 RMK AO2 SLP173 T10721094 FZRANO</pre></div>`)[0];
+                popup_f96067beb7ca2fed6bc23109eabb2b90.setContent(html_6cc189268b9b15d0ea9fed6baee3a6c8);
+            
+        
+
+        circle_marker_2b0bb261721a3d30f7af948cc4e92226.bindPopup(popup_f96067beb7ca2fed6bc23109eabb2b90)
+        ;
+
+        
+    
+    
+            var circle_marker_d894515a389e7bb13a8a5dfb267aff9d = L.circleMarker(
+                [43.6455, -94.4168],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_e4e7368be21a8877a3df54dd01c35401 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_bf0acfbd7aac4a80b9b4d16ff135b542 = $(`<div id="html_bf0acfbd7aac4a80b9b4d16ff135b542" style="width: 100.0%; height: 100.0%;"><b>KFRM</b> — Fairmont Muni, MN, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KFRM 112256Z AUTO 06005KT 9SM -SN OVC040 M08/M09 A2994 RMK AO2 SLP167 P0000 T10781094 FZRANO</pre></div>`)[0];
+                popup_e4e7368be21a8877a3df54dd01c35401.setContent(html_bf0acfbd7aac4a80b9b4d16ff135b542);
+            
+        
+
+        circle_marker_d894515a389e7bb13a8a5dfb267aff9d.bindPopup(popup_e4e7368be21a8877a3df54dd01c35401)
+        ;
+
+        
+    
+    
+            var circle_marker_057931d4ced22a43a717c58c498fbe65 = L.circleMarker(
+                [42.9141, -97.3807],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_10c98d3de899217ee7c4e376bef5522f = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_665e84339d0846d84e941163d64c2399 = $(`<div id="html_665e84339d0846d84e941163d64c2399" style="width: 100.0%; height: 100.0%;"><b>KYKN</b> — Yankton/Gurney Muni, SD, US<br><b>Flight Cat:</b> IFR<br><pre style='white-space:pre-wrap'>METAR KYKN 112256Z AUTO 08006KT 1 1/2SM -SN BR BKN006 BKN020 OVC027 M03/M04 A2986 RMK AO2 UPB05E39SNE05B13E23B25E34B39 CIG 005V009 SLP144 P0000 T10331044 FZRANO</pre></div>`)[0];
+                popup_10c98d3de899217ee7c4e376bef5522f.setContent(html_665e84339d0846d84e941163d64c2399);
+            
+        
+
+        circle_marker_057931d4ced22a43a717c58c498fbe65.bindPopup(popup_10c98d3de899217ee7c4e376bef5522f)
+        ;
+
+        
+    
+    
+            var circle_marker_b3ab4067ea226f4d084c94c6cb7311b1 = L.circleMarker(
+                [44.3075, -96.8183],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_e0916371c9d1a7539e7bb69861b3fe99 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ddd5724f869faa714b35485d46709cda = $(`<div id="html_ddd5724f869faa714b35485d46709cda" style="width: 100.0%; height: 100.0%;"><b>KBKX</b> — Brookings Rgnl, SD, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KBKX 112256Z AUTO 10005KT 10SM OVC016 M07/M09 A2988 RMK AO2 SLP158 T10671089 FZRANO</pre></div>`)[0];
+                popup_e0916371c9d1a7539e7bb69861b3fe99.setContent(html_ddd5724f869faa714b35485d46709cda);
+            
+        
+
+        circle_marker_b3ab4067ea226f4d084c94c6cb7311b1.bindPopup(popup_e0916371c9d1a7539e7bb69861b3fe99)
+        ;
+
+        
+    
+    
+            var circle_marker_e1e189743277b68732db6b3eb2f5a224 = L.circleMarker(
+                [42.9895, -96.1645],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_d11be08679896ba03313d3590e06c292 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_329c47baddd8aa2537625cb154a5ab90 = $(`<div id="html_329c47baddd8aa2537625cb154a5ab90" style="width: 100.0%; height: 100.0%;"><b>KSXK</b> — Maurice/Sioux Cnty Rgnl, IA, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KSXK 112255Z AUTO 09011KT 6SM -SN BKN026 BKN039 OVC060 M07/M08 A2987 RMK AO2</pre></div>`)[0];
+                popup_d11be08679896ba03313d3590e06c292.setContent(html_329c47baddd8aa2537625cb154a5ab90);
+            
+        
+
+        circle_marker_e1e189743277b68732db6b3eb2f5a224.bindPopup(popup_d11be08679896ba03313d3590e06c292)
+        ;
+
+        
+    
+    
+            var circle_marker_087c2b80d260992b3e7222adc81afcba = L.circleMarker(
+                [43.7653, -99.3163],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_de6cb590d832e49a36bdbde085c71799 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_3d545c4ad497931d2003b65c3bb92496 = $(`<div id="html_3d545c4ad497931d2003b65c3bb92496" style="width: 100.0%; height: 100.0%;"><b>K9V9</b> — Chamberlain Muni, SD, US<br><b>Flight Cat:</b> IFR<br><pre style='white-space:pre-wrap'>METAR K9V9 112255Z AUTO 00000KT 3SM -SN BKN006 OVC009 M01/M01 A2988 RMK AO2 P0001 T10111011</pre></div>`)[0];
+                popup_de6cb590d832e49a36bdbde085c71799.setContent(html_3d545c4ad497931d2003b65c3bb92496);
+            
+        
+
+        circle_marker_087c2b80d260992b3e7222adc81afcba.bindPopup(popup_de6cb590d832e49a36bdbde085c71799)
+        ;
+
+        
+    
+    
+            var circle_marker_62adecc5ab331edc595d316af32758d7 = L.circleMarker(
+                [40.5716, -102.2768],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_e6cd28cecf5440e17e676726b044336f = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_20fe0dd2fada7f13a325bd68d1f0f4b8 = $(`<div id="html_20fe0dd2fada7f13a325bd68d1f0f4b8" style="width: 100.0%; height: 100.0%;"><b>KHEQ</b> — Holyoke Arpt, CO, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KHEQ 112255Z AUTO 34018G22KT 10SM CLR 18/M04 A2982 RMK AO2</pre></div>`)[0];
+                popup_e6cd28cecf5440e17e676726b044336f.setContent(html_20fe0dd2fada7f13a325bd68d1f0f4b8);
+            
+        
+
+        circle_marker_62adecc5ab331edc595d316af32758d7.bindPopup(popup_e6cd28cecf5440e17e676726b044336f)
+        ;
+
+        
+    
+    
+            var circle_marker_20798154cf951720f3dd56b8d5109bb7 = L.circleMarker(
+                [40.1, -102.241],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_d6e5fd052b19e09b04f8d92995f02435 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_6dee0158bdcc3784d36fd3c35ffa916e = $(`<div id="html_6dee0158bdcc3784d36fd3c35ffa916e" style="width: 100.0%; height: 100.0%;"><b>K2V5</b> — Wray Muni, CO, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR K2V5 112255Z AUTO 30013G22KT 10SM CLR 20/M07 A2983 RMK AO2</pre></div>`)[0];
+                popup_d6e5fd052b19e09b04f8d92995f02435.setContent(html_6dee0158bdcc3784d36fd3c35ffa916e);
+            
+        
+
+        circle_marker_20798154cf951720f3dd56b8d5109bb7.bindPopup(popup_d6e5fd052b19e09b04f8d92995f02435)
+        ;
+
+        
+    
+    
+            var circle_marker_2a78ecd66e355bfdc123522534adbbf7 = L.circleMarker(
+                [43.6823, -93.3722],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_dc85cede3509c14f16417820b72f47d9 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_95b0543b50ea86ad40ee44b59c20ab9d = $(`<div id="html_95b0543b50ea86ad40ee44b59c20ab9d" style="width: 100.0%; height: 100.0%;"><b>KAEL</b> — Albert Lea Muni, MN, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KAEL 112255Z AUTO 07007KT 10SM OVC011 M07/M09 A2992 RMK AO2 T10721089</pre></div>`)[0];
+                popup_dc85cede3509c14f16417820b72f47d9.setContent(html_95b0543b50ea86ad40ee44b59c20ab9d);
+            
+        
+
+        circle_marker_2a78ecd66e355bfdc123522534adbbf7.bindPopup(popup_dc85cede3509c14f16417820b72f47d9)
+        ;
+
+        
+    
+    
+            var circle_marker_5eb0b6422548c945d42ca83732080c33 = L.circleMarker(
+                [44.3792, -98.2227],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_444b3948563b0a72dcf229dcb6af2e6e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_37db34f7cf4732aecbbd98d3502e9a52 = $(`<div id="html_37db34f7cf4732aecbbd98d3502e9a52" style="width: 100.0%; height: 100.0%;"><b>KHON</b> — Huron Rgnl, SD, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KHON 112255Z AUTO 13003KT 10SM BKN012 BKN018 OVC023 M04/M07 A2988 RMK AO2 SLP138 T10441072</pre></div>`)[0];
+                popup_444b3948563b0a72dcf229dcb6af2e6e.setContent(html_37db34f7cf4732aecbbd98d3502e9a52);
+            
+        
+
+        circle_marker_5eb0b6422548c945d42ca83732080c33.bindPopup(popup_444b3948563b0a72dcf229dcb6af2e6e)
+        ;
+
+        
+    
+    
+            var circle_marker_cbd6208e44331ba1b8e11c870340005f = L.circleMarker(
+                [39.2733, -103.6674],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_a9ee26cbdfc12cb1e5eb181993b46970 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d7be452d7c2592aa435331d1090a6446 = $(`<div id="html_d7be452d7c2592aa435331d1090a6446" style="width: 100.0%; height: 100.0%;"><b>KLIC</b> — Limon Muni, CO, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KLIC 112255Z AUTO 32008KT 10SM CLR 15/M07 A2992 RMK AO2 SLP111 T01501067</pre></div>`)[0];
+                popup_a9ee26cbdfc12cb1e5eb181993b46970.setContent(html_d7be452d7c2592aa435331d1090a6446);
+            
+        
+
+        circle_marker_cbd6208e44331ba1b8e11c870340005f.bindPopup(popup_a9ee26cbdfc12cb1e5eb181993b46970)
+        ;
+
+        
+    
+    
+            var circle_marker_bdd32d8645cf6dc8e8b4de65f78185d2 = L.circleMarker(
+                [41.7302, -98.0546],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_9f3c91fd396654c48e7df06df02c16a8 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d8fea4daae9d121617f7b712fbea0143 = $(`<div id="html_d8fea4daae9d121617f7b712fbea0143" style="width: 100.0%; height: 100.0%;"><b>KBVN</b> — Albion Muni, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KBVN 112255Z AUTO 00000KT 10SM CLR 01/M04 A2979 RMK AO2 T00051042</pre></div>`)[0];
+                popup_9f3c91fd396654c48e7df06df02c16a8.setContent(html_d8fea4daae9d121617f7b712fbea0143);
+            
+        
+
+        circle_marker_bdd32d8645cf6dc8e8b4de65f78185d2.bindPopup(popup_9f3c91fd396654c48e7df06df02c16a8)
+        ;
+
+        
+    
+    
+            var circle_marker_29a7aa118956b9a84f351b55722509a0 = L.circleMarker(
+                [40.3315, -103.807],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_badeda0f2cb852fff098d784601b09bd = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_839ec900f9d901c48c872c3bbda0bdf4 = $(`<div id="html_839ec900f9d901c48c872c3bbda0bdf4" style="width: 100.0%; height: 100.0%;"><b>KFMM</b> — Fort Morgan Muni, CO, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KFMM 112255Z AUTO 28009KT 10SM CLR 16/M07 A2988 RMK AO2</pre></div>`)[0];
+                popup_badeda0f2cb852fff098d784601b09bd.setContent(html_839ec900f9d901c48c872c3bbda0bdf4);
+            
+        
+
+        circle_marker_29a7aa118956b9a84f351b55722509a0.bindPopup(popup_badeda0f2cb852fff098d784601b09bd)
+        ;
+
+        
+    
+    
+            var circle_marker_7b78be2d41c75357f61af5b18b4f77c9 = L.circleMarker(
+                [45.1111, -95.1258],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_e7568192d713679ae8b00c6b5bc665c1 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_f76e6f1ae0049df67aa6c33232dbeafe = $(`<div id="html_f76e6f1ae0049df67aa6c33232dbeafe" style="width: 100.0%; height: 100.0%;"><b>KBDH</b> — Willmar Muni, MN, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KBDH 112255Z AUTO 10007KT 10SM SCT050 OVC060 M09/M10 A2996 RMK AO2</pre></div>`)[0];
+                popup_e7568192d713679ae8b00c6b5bc665c1.setContent(html_f76e6f1ae0049df67aa6c33232dbeafe);
+            
+        
+
+        circle_marker_7b78be2d41c75357f61af5b18b4f77c9.bindPopup(popup_e7568192d713679ae8b00c6b5bc665c1)
+        ;
+
+        
+    
+    
+            var circle_marker_41683ec816bc9bbf4898fc342e2be1eb = L.circleMarker(
+                [42.4691, -98.6903],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_3cd5e96b7a8970f335c32ba83b5928cc = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_043e600a398a9e93b8696d9571dec8bb = $(`<div id="html_043e600a398a9e93b8696d9571dec8bb" style="width: 100.0%; height: 100.0%;"><b>KONL</b> — O'Neill Muni, NE, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KONL 112255Z AUTO 00000KT 10SM OVC026 02/M02 A2981 RMK AO2 T00151019</pre></div>`)[0];
+                popup_3cd5e96b7a8970f335c32ba83b5928cc.setContent(html_043e600a398a9e93b8696d9571dec8bb);
+            
+        
+
+        circle_marker_41683ec816bc9bbf4898fc342e2be1eb.bindPopup(popup_3cd5e96b7a8970f335c32ba83b5928cc)
+        ;
+
+        
+    
+    
+            var circle_marker_93b64a60225a3aa0037e83d72d1aa0aa = L.circleMarker(
+                [43.904, -92.4921],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_48904b933a8671cd39c488f337e2b990 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9a00b2193a3e0956bcc96c298ae2aa9f = $(`<div id="html_9a00b2193a3e0956bcc96c298ae2aa9f" style="width: 100.0%; height: 100.0%;"><b>KRST</b> — Rochester Intl, MN, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KRST 112254Z 07004KT 10SM OVC085 M07/M11 A2993 RMK AO2 SLP162 T10721106</pre></div>`)[0];
+                popup_48904b933a8671cd39c488f337e2b990.setContent(html_9a00b2193a3e0956bcc96c298ae2aa9f);
+            
+        
+
+        circle_marker_93b64a60225a3aa0037e83d72d1aa0aa.bindPopup(popup_48904b933a8671cd39c488f337e2b990)
+        ;
+
+        
+    
+    
+            var circle_marker_c074f05566c41d6ef7383ad414811049 = L.circleMarker(
+                [42.0573, -102.8017],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_c8b574b6caac3e2ec745795ac05ca687 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_5095ea6b7353abc91cf5e1b76228d111 = $(`<div id="html_5095ea6b7353abc91cf5e1b76228d111" style="width: 100.0%; height: 100.0%;"><b>KAIA</b> — Alliance Muni, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KAIA 112253Z AUTO 29008KT 10SM CLR 12/M04 A2979 RMK AO2 SLP073 T01221044</pre></div>`)[0];
+                popup_c8b574b6caac3e2ec745795ac05ca687.setContent(html_5095ea6b7353abc91cf5e1b76228d111);
+            
+        
+
+        circle_marker_c074f05566c41d6ef7383ad414811049.bindPopup(popup_c8b574b6caac3e2ec745795ac05ca687)
+        ;
+
+        
+    
+    
+            var circle_marker_063e9878da20c23ac45af7bc81f41a96 = L.circleMarker(
+                [41.1579, -104.8081],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_49a9414a84a6cf231bd6b5c3f71b57e7 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_1273956bb9ee5f06c067b38666a7c21b = $(`<div id="html_1273956bb9ee5f06c067b38666a7c21b" style="width: 100.0%; height: 100.0%;"><b>KCYS</b> — Cheyenne Rgnl, WY, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KCYS 112253Z 28025G37KT 10SM CLR 13/M09 A2992 RMK AO2 PK WND 29042/2226 SLP075 T01331089 $</pre></div>`)[0];
+                popup_49a9414a84a6cf231bd6b5c3f71b57e7.setContent(html_1273956bb9ee5f06c067b38666a7c21b);
+            
+        
+
+        circle_marker_063e9878da20c23ac45af7bc81f41a96.bindPopup(popup_49a9414a84a6cf231bd6b5c3f71b57e7)
+        ;
+
+        
+    
+    
+            var circle_marker_e3afa5fca8423bad1cfc78e37c78ccb1 = L.circleMarker(
+                [41.6234, -98.9489],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_01625abfcb567124b11869cdcad177b3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_2c18160736dcfc22fcd2ef40234cc4f4 = $(`<div id="html_2c18160736dcfc22fcd2ef40234cc4f4" style="width: 100.0%; height: 100.0%;"><b>KODX</b> — Ord/Sharp Fld, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KODX 112253Z AUTO 06004KT 10SM CLR 03/M03 A2976 RMK AO2 SLP094 T00331033 $</pre></div>`)[0];
+                popup_01625abfcb567124b11869cdcad177b3.setContent(html_2c18160736dcfc22fcd2ef40234cc4f4);
+            
+        
+
+        circle_marker_e3afa5fca8423bad1cfc78e37c78ccb1.bindPopup(popup_01625abfcb567124b11869cdcad177b3)
+        ;
+
+        
+    
+    
+            var circle_marker_12884448a04f184f915991d7304c45a0 = L.circleMarker(
+                [43.1682, -95.2101],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_6f48df4309f405f3ed3a266a9338b4b3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4682e04c6a74688e092b0fec0fc22c35 = $(`<div id="html_4682e04c6a74688e092b0fec0fc22c35" style="width: 100.0%; height: 100.0%;"><b>KSPW</b> — Spencer Muni, IA, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KSPW 112253Z AUTO 11007KT 9SM -SN OVC021 M08/M10 A2990 RMK AO2 SNE2156B31 SLP149 P0000 T10831100</pre></div>`)[0];
+                popup_6f48df4309f405f3ed3a266a9338b4b3.setContent(html_4682e04c6a74688e092b0fec0fc22c35);
+            
+        
+
+        circle_marker_12884448a04f184f915991d7304c45a0.bindPopup(popup_6f48df4309f405f3ed3a266a9338b4b3)
+        ;
+
+        
+    
+    
+            var circle_marker_a89f95c7ee61c8956bef86d0896bf2a1 = L.circleMarker(
+                [41.0993, -102.9864],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_f5e502e4f3ccab87c0727dac4ec39ba4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_e48b5dd85a6fda756d1746c8ee858bcc = $(`<div id="html_e48b5dd85a6fda756d1746c8ee858bcc" style="width: 100.0%; height: 100.0%;"><b>KSNY</b> — Sidney/Carr Fld, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KSNY 112253Z AUTO 31021G30KT 10SM CLR 16/M06 A2984 RMK AO2 PK WND 30035/2157 SLP082 T01611056</pre></div>`)[0];
+                popup_f5e502e4f3ccab87c0727dac4ec39ba4.setContent(html_e48b5dd85a6fda756d1746c8ee858bcc);
+            
+        
+
+        circle_marker_a89f95c7ee61c8956bef86d0896bf2a1.bindPopup(popup_f5e502e4f3ccab87c0727dac4ec39ba4)
+        ;
+
+        
+    
+    
+            var circle_marker_cd23be65901a48574a007167cf423f2c = L.circleMarker(
+                [41.8747, -103.6011],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_f9a38825a833ccebbe0291ca22f92931 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_c3c45a5961c23fa143cbc10f90636ff9 = $(`<div id="html_c3c45a5961c23fa143cbc10f90636ff9" style="width: 100.0%; height: 100.0%;"><b>KBFF</b> — Scottsbluff/Western Nebraska Rgnl, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KBFF 112253Z AUTO 28015G25KT 10SM CLR 17/M04 A2983 RMK AO2 PK WND 29032/2205 RAB2159E49 SLP073 P0000 T01671039</pre></div>`)[0];
+                popup_f9a38825a833ccebbe0291ca22f92931.setContent(html_c3c45a5961c23fa143cbc10f90636ff9);
+            
+        
+
+        circle_marker_cd23be65901a48574a007167cf423f2c.bindPopup(popup_f9a38825a833ccebbe0291ca22f92931)
+        ;
+
+        
+    
+    
+            var circle_marker_b28ca2b564368944f87f38d8f8447234 = L.circleMarker(
+                [45.2249, -96.0041],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_3694aeace3c3f2f5cd323fe5b4d11cda = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_60ceb56ad9e6975e0585fb8c32171f95 = $(`<div id="html_60ceb56ad9e6975e0585fb8c32171f95" style="width: 100.0%; height: 100.0%;"><b>KAQP</b> — Appleton Muni, MN, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KAQP 112253Z AUTO 00000KT 10SM OVC030 M07/M10 A2996 RMK AO2 TSNO</pre></div>`)[0];
+                popup_3694aeace3c3f2f5cd323fe5b4d11cda.setContent(html_60ceb56ad9e6975e0585fb8c32171f95);
+            
+        
+
+        circle_marker_b28ca2b564368944f87f38d8f8447234.bindPopup(popup_3694aeace3c3f2f5cd323fe5b4d11cda)
+        ;
+
+        
+    
+    
+            var circle_marker_f22ea755b1af1f5166cd3a33fac211c6 = L.circleMarker(
+                [45.5442, -94.0516],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_bd215cad2e43c340b85db42f9a8f3838 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_a50b703a9fa26deaec2bd7882cea565e = $(`<div id="html_a50b703a9fa26deaec2bd7882cea565e" style="width: 100.0%; height: 100.0%;"><b>KSTC</b> — St Cloud Rgnl, MN, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KSTC 112253Z 00000KT 10SM BKN120 M08/M11 A2998 RMK AO2 SLP181 T10831111</pre></div>`)[0];
+                popup_bd215cad2e43c340b85db42f9a8f3838.setContent(html_a50b703a9fa26deaec2bd7882cea565e);
+            
+        
+
+        circle_marker_f22ea755b1af1f5166cd3a33fac211c6.bindPopup(popup_bd215cad2e43c340b85db42f9a8f3838)
+        ;
+
+        
+    
+    
+            var circle_marker_5c2c9c074941a9ac8fdc1d6d47b99672 = L.circleMarker(
+                [41.122, -100.6689],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_e7b6cd57945ad51c1239e39f22fbe7ba = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_70ced1fbcbc775a526df570f368daacb = $(`<div id="html_70ced1fbcbc775a526df570f368daacb" style="width: 100.0%; height: 100.0%;"><b>KLBF</b> — N Platte/Lee Bird Fld, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KLBF 112253Z AUTO 30005KT 10SM CLR 13/M01 A2974 RMK AO2 SLP077 T01331006 $</pre></div>`)[0];
+                popup_e7b6cd57945ad51c1239e39f22fbe7ba.setContent(html_70ced1fbcbc775a526df570f368daacb);
+            
+        
+
+        circle_marker_5c2c9c074941a9ac8fdc1d6d47b99672.bindPopup(popup_e7b6cd57945ad51c1239e39f22fbe7ba)
+        ;
+
+        
+    
+    
+            var circle_marker_167c1bd4d6c499186ac0cc503eec68e3 = L.circleMarker(
+                [44.5483, -95.0804],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_c16ce98dc0b7d804b709c488b1dcc0a8 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_86f3d3e0577974fc3bccc178ee2706a4 = $(`<div id="html_86f3d3e0577974fc3bccc178ee2706a4" style="width: 100.0%; height: 100.0%;"><b>KRWF</b> — Redwood Falls Muni, MN, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KRWF 112253Z AUTO 08007KT 10SM OVC028 M08/M11 A2995 RMK AO2 SLP164 T10781111</pre></div>`)[0];
+                popup_c16ce98dc0b7d804b709c488b1dcc0a8.setContent(html_86f3d3e0577974fc3bccc178ee2706a4);
+            
+        
+
+        circle_marker_167c1bd4d6c499186ac0cc503eec68e3.bindPopup(popup_c16ce98dc0b7d804b709c488b1dcc0a8)
+        ;
+
+        
+    
+    
+            var circle_marker_c53764e36ba40b0811a6e41ca90758ed = L.circleMarker(
+                [43.7743, -98.0384],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_897a1180b318037d7e7f7856ce1b6113 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_5826cc3d8eaf8dccf1fc5237089250bb = $(`<div id="html_5826cc3d8eaf8dccf1fc5237089250bb" style="width: 100.0%; height: 100.0%;"><b>KMHE</b> — Mitchell Muni, SD, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KMHE 112253Z AUTO 11004KT 4SM UP BR OVC048 M04/M06 A2989 RMK AO2 UPB50SNE04B14E50 SLP140 P0001 T10441056</pre></div>`)[0];
+                popup_897a1180b318037d7e7f7856ce1b6113.setContent(html_5826cc3d8eaf8dccf1fc5237089250bb);
+            
+        
+
+        circle_marker_c53764e36ba40b0811a6e41ca90758ed.bindPopup(popup_897a1180b318037d7e7f7856ce1b6113)
+        ;
+
+        
+    
+    
+            var circle_marker_11b62613758d2c60a754cce3ec6d1721 = L.circleMarker(
+                [40.1743, -103.2146],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_46a72f353cd325b0e31458b83cce8aac = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d23d3d1db1e9d78b3af70a33393020f8 = $(`<div id="html_d23d3d1db1e9d78b3af70a33393020f8" style="width: 100.0%; height: 100.0%;"><b>KAKO</b> — Akron/Plains Rgnl, CO, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KAKO 112253Z AUTO 32021G27KT 10SM CLR 17/M08 A2987 RMK AO2 PK WND 31027/2253 SLP090 T01671078</pre></div>`)[0];
+                popup_46a72f353cd325b0e31458b83cce8aac.setContent(html_d23d3d1db1e9d78b3af70a33393020f8);
+            
+        
+
+        circle_marker_11b62613758d2c60a754cce3ec6d1721.bindPopup(popup_46a72f353cd325b0e31458b83cce8aac)
+        ;
+
+        
+    
+    
+            var circle_marker_d51651d359393ac35fda643034b96f31 = L.circleMarker(
+                [41.4365, -99.6385],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_38854aaf0d5972d44f2453f8f0cde0cd = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_68594caa60ae10c5b36afaab72ccd3d0 = $(`<div id="html_68594caa60ae10c5b36afaab72ccd3d0" style="width: 100.0%; height: 100.0%;"><b>KBBW</b> — Broken Bow Muni, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KBBW 112253Z AUTO 02009KT 10SM CLR 06/02 A2974 RMK AO2 SLP085 T00610017</pre></div>`)[0];
+                popup_38854aaf0d5972d44f2453f8f0cde0cd.setContent(html_68594caa60ae10c5b36afaab72ccd3d0);
+            
+        
+
+        circle_marker_d51651d359393ac35fda643034b96f31.bindPopup(popup_38854aaf0d5972d44f2453f8f0cde0cd)
+        ;
+
+        
+    
+    
+            var circle_marker_40c97bd1165eecdcfadffe9ccfb6b757 = L.circleMarker(
+                [40.5106, -101.6243],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_8d94e3bdd6b2c9b30e005e1bf7774a60 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_49f6b98995f31386261b1ece88d4706a = $(`<div id="html_49f6b98995f31386261b1ece88d4706a" style="width: 100.0%; height: 100.0%;"><b>KIML</b> — Imperial Muni, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KIML 112253Z AUTO 31012KT 10SM CLR 19/M04 A2978 RMK AO2 PK WND 32028/2156 SLP084 T01891039</pre></div>`)[0];
+                popup_8d94e3bdd6b2c9b30e005e1bf7774a60.setContent(html_49f6b98995f31386261b1ece88d4706a);
+            
+        
+
+        circle_marker_40c97bd1165eecdcfadffe9ccfb6b757.bindPopup(popup_8d94e3bdd6b2c9b30e005e1bf7774a60)
+        ;
+
+        
+    
+    
+            var circle_marker_fc98ed61582aecf9dc557b5e92bb4794 = L.circleMarker(
+                [44.8852, -93.2313],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_f1261fb3e0de826196bdeb6d615afa2d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_08e3db865175eabddb468ad56e5c7d39 = $(`<div id="html_08e3db865175eabddb468ad56e5c7d39" style="width: 100.0%; height: 100.0%;"><b>KMSP</b> — Minneapolis-St Paul Intl, MN, US<br><b>Flight Cat:</b> IFR<br><pre style='white-space:pre-wrap'>METAR KMSP 112253Z 10003KT 2 1/2SM -SN OVC033 M08/M11 A3000 RMK AO2 SLP174 P0000 T10781106</pre></div>`)[0];
+                popup_f1261fb3e0de826196bdeb6d615afa2d.setContent(html_08e3db865175eabddb468ad56e5c7d39);
+            
+        
+
+        circle_marker_fc98ed61582aecf9dc557b5e92bb4794.bindPopup(popup_f1261fb3e0de826196bdeb6d615afa2d)
+        ;
+
+        
+    
+    
+            var circle_marker_9954614572335d5a63cbd94aed52dc93 = L.circleMarker(
+                [43.391, -99.8462],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_81bc24fb703cf3b1e7e2199d52ab1850 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_68e00569650c0ec8a6a7ab4408c87abc = $(`<div id="html_68e00569650c0ec8a6a7ab4408c87abc" style="width: 100.0%; height: 100.0%;"><b>KICR</b> — Winner/Wiley Fld, SD, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KICR 112253Z AUTO 33008KT 10SM FEW008 OVC016 02/00 A2984 RMK AO2 SLP121 T00170000</pre></div>`)[0];
+                popup_81bc24fb703cf3b1e7e2199d52ab1850.setContent(html_68e00569650c0ec8a6a7ab4408c87abc);
+            
+        
+
+        circle_marker_9954614572335d5a63cbd94aed52dc93.bindPopup(popup_81bc24fb703cf3b1e7e2199d52ab1850)
+        ;
+
+        
+    
+    
+            var circle_marker_5e9105c2f7b19d91cde00cb5b5f719ff = L.circleMarker(
+                [39.8466, -104.6562],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_b6fbee64c71bcceb915df7d7542757c4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_2c94bf42c84857f078c6b202645da976 = $(`<div id="html_2c94bf42c84857f078c6b202645da976" style="width: 100.0%; height: 100.0%;"><b>KDEN</b> — Denver Intl, CO, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KDEN 112253Z 26013KT 10SM SCT150 BKN220 16/M10 A2992 RMK AO2 SLP077 ACSL DSNT S-W-N T01561100</pre></div>`)[0];
+                popup_b6fbee64c71bcceb915df7d7542757c4.setContent(html_2c94bf42c84857f078c6b202645da976);
+            
+        
+
+        circle_marker_5e9105c2f7b19d91cde00cb5b5f719ff.bindPopup(popup_b6fbee64c71bcceb915df7d7542757c4)
+        ;
+
+        
+    
+    
+            var circle_marker_4ac88b1f7592ef0a5e5dbbe53a8d7b7e = L.circleMarker(
+                [42.3917, -96.3795],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_e1a302f1f44e16fb9f96d778832f96d9 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_e89c3eb06da5ff8ec6fb1ed53a1848d3 = $(`<div id="html_e89c3eb06da5ff8ec6fb1ed53a1848d3" style="width: 100.0%; height: 100.0%;"><b>KSUX</b> — Sioux City/Day Fld, IA, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KSUX 112252Z 09008KT 10SM FEW039 OVC060 M04/M06 A2986 RMK AO2 UPE37 SLP128 P0000 T10391056</pre></div>`)[0];
+                popup_e1a302f1f44e16fb9f96d778832f96d9.setContent(html_e89c3eb06da5ff8ec6fb1ed53a1848d3);
+            
+        
+
+        circle_marker_4ac88b1f7592ef0a5e5dbbe53a8d7b7e.bindPopup(popup_e1a302f1f44e16fb9f96d778832f96d9)
+        ;
+
+        
+    
+    
+            var circle_marker_f117756e7537fc3f433b4bd4e3afc1b9 = L.circleMarker(
+                [42.8585, -100.5514],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_4c65e33a5b68657ed951c90b6947db93 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_1acab22e5217dd21345e2a7299b76acd = $(`<div id="html_1acab22e5217dd21345e2a7299b76acd" style="width: 100.0%; height: 100.0%;"><b>KVTN</b> — Valentine/Miller Fld, NE, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KVTN 112252Z AUTO 02009KT 10SM OVC010 04/02 A2981 RMK AO2 SLP113 T00440022</pre></div>`)[0];
+                popup_4c65e33a5b68657ed951c90b6947db93.setContent(html_1acab22e5217dd21345e2a7299b76acd);
+            
+        
+
+        circle_marker_f117756e7537fc3f433b4bd4e3afc1b9.bindPopup(popup_4c65e33a5b68657ed951c90b6947db93)
+        ;
+
+        
+    
+    
+            var circle_marker_6ed58c6040c6af3c022531262824bd43 = L.circleMarker(
+                [42.9141, -97.3807],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_26cc24ec835070f583505bc3bcb3fa04 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_e6a48957a011e55dd5645e156bfddbc9 = $(`<div id="html_e6a48957a011e55dd5645e156bfddbc9" style="width: 100.0%; height: 100.0%;"><b>KYKN</b> — Yankton/Gurney Muni, SD, US<br><b>Flight Cat:</b> IFR<br><pre style='white-space:pre-wrap'>SPECI KYKN 112247Z AUTO 08007KT 1 1/2SM -SN BR BKN006 OVC020 M03/M04 A2986 RMK AO2 UPB05E39SNE05B13E23B25E34B39 CIG 005V009 P0000 FZRANO</pre></div>`)[0];
+                popup_26cc24ec835070f583505bc3bcb3fa04.setContent(html_e6a48957a011e55dd5645e156bfddbc9);
+            
+        
+
+        circle_marker_6ed58c6040c6af3c022531262824bd43.bindPopup(popup_26cc24ec835070f583505bc3bcb3fa04)
+        ;
+
+        
+    
+    
+            var circle_marker_d3497d22a84bc6587ff92f797e31b0c3 = L.circleMarker(
+                [42.4691, -98.6903],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_cef360cc2295a3c21d5255136ed89a06 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_164b34abfb3c97defdd87e889ab4025b = $(`<div id="html_164b34abfb3c97defdd87e889ab4025b" style="width: 100.0%; height: 100.0%;"><b>KONL</b> — O'Neill Muni, NE, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KONL 112235Z AUTO 00000KT 10SM OVC026 02/M02 A2979 RMK AO2 T00161019</pre></div>`)[0];
+                popup_cef360cc2295a3c21d5255136ed89a06.setContent(html_164b34abfb3c97defdd87e889ab4025b);
+            
+        
+
+        circle_marker_d3497d22a84bc6587ff92f797e31b0c3.bindPopup(popup_cef360cc2295a3c21d5255136ed89a06)
+        ;
+
+        
+    
+    
+            var circle_marker_9d34012c69fdfd2097b140dfbf881565 = L.circleMarker(
+                [43.6823, -93.3722],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_130e5ec12e609ac10e2c4f30d6da22e2 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_3610c9d0b579fdca05ecb8db63336d5c = $(`<div id="html_3610c9d0b579fdca05ecb8db63336d5c" style="width: 100.0%; height: 100.0%;"><b>KAEL</b> — Albert Lea Muni, MN, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KAEL 112235Z AUTO 07007KT 10SM BKN011 OVC049 M07/M09 A2991 RMK AO2 T10721089</pre></div>`)[0];
+                popup_130e5ec12e609ac10e2c4f30d6da22e2.setContent(html_3610c9d0b579fdca05ecb8db63336d5c);
+            
+        
+
+        circle_marker_9d34012c69fdfd2097b140dfbf881565.bindPopup(popup_130e5ec12e609ac10e2c4f30d6da22e2)
+        ;
+
+        
+    
+    
+            var circle_marker_8bcb2e5c895f3195aa2d7822ddf3821f = L.circleMarker(
+                [41.7302, -98.0546],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_ccd08cc36e50349e80edd0a74020a4e7 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4142ccc6b997a519ee6d4b49fffd47bd = $(`<div id="html_4142ccc6b997a519ee6d4b49fffd47bd" style="width: 100.0%; height: 100.0%;"><b>KBVN</b> — Albion Muni, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KBVN 112235Z AUTO 08004KT 10SM CLR 01/M04 A2978 RMK AO2 T00111040</pre></div>`)[0];
+                popup_ccd08cc36e50349e80edd0a74020a4e7.setContent(html_4142ccc6b997a519ee6d4b49fffd47bd);
+            
+        
+
+        circle_marker_8bcb2e5c895f3195aa2d7822ddf3821f.bindPopup(popup_ccd08cc36e50349e80edd0a74020a4e7)
+        ;
+
+        
+    
+    
+            var circle_marker_aafe450f65d9ed510039648b25c80f8e = L.circleMarker(
+                [40.1, -102.241],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_6ad13c04c8e3d70abf25b8ba4a203d60 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_63c62e88ab946c7f935a54487cc3b03d = $(`<div id="html_63c62e88ab946c7f935a54487cc3b03d" style="width: 100.0%; height: 100.0%;"><b>K2V5</b> — Wray Muni, CO, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR K2V5 112235Z AUTO 31018G24KT 10SM CLR 21/M07 A2982 RMK AO2</pre></div>`)[0];
+                popup_6ad13c04c8e3d70abf25b8ba4a203d60.setContent(html_63c62e88ab946c7f935a54487cc3b03d);
+            
+        
+
+        circle_marker_aafe450f65d9ed510039648b25c80f8e.bindPopup(popup_6ad13c04c8e3d70abf25b8ba4a203d60)
+        ;
+
+        
+    
+    
+            var circle_marker_ff4f04efbc86968d57a436c62d3a688f = L.circleMarker(
+                [40.3315, -103.807],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_4dd3d26f92b4c088f4e6cf5af5fa8c2a = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_05b274d8d8f0f25397f07d47b1797b3b = $(`<div id="html_05b274d8d8f0f25397f07d47b1797b3b" style="width: 100.0%; height: 100.0%;"><b>KFMM</b> — Fort Morgan Muni, CO, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KFMM 112235Z AUTO 30008KT 10SM CLR 18/M07 A2988 RMK AO2</pre></div>`)[0];
+                popup_4dd3d26f92b4c088f4e6cf5af5fa8c2a.setContent(html_05b274d8d8f0f25397f07d47b1797b3b);
+            
+        
+
+        circle_marker_ff4f04efbc86968d57a436c62d3a688f.bindPopup(popup_4dd3d26f92b4c088f4e6cf5af5fa8c2a)
+        ;
+
+        
+    
+    
+            var circle_marker_5c3d4c7c61e418d1d2465a9aacf37bf1 = L.circleMarker(
+                [43.5775, -96.7539],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_7c4695049f3e050fdf4dd1cdebd4ba37 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_73b52c3aff4a80c38b0022001a83546e = $(`<div id="html_73b52c3aff4a80c38b0022001a83546e" style="width: 100.0%; height: 100.0%;"><b>KFSD</b> — Sioux Falls/Foss Fld, SD, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>SPECI KFSD 112235Z 14007KT 3SM -SN BR FEW036 OVC042 M07/M09 A2986 RMK AO2 P0001 T10721089</pre></div>`)[0];
+                popup_7c4695049f3e050fdf4dd1cdebd4ba37.setContent(html_73b52c3aff4a80c38b0022001a83546e);
+            
+        
+
+        circle_marker_5c3d4c7c61e418d1d2465a9aacf37bf1.bindPopup(popup_7c4695049f3e050fdf4dd1cdebd4ba37)
+        ;
+
+        
+    
+    
+            var circle_marker_88ec5c33975454239f4d99571457e43c = L.circleMarker(
+                [41.1164, -101.7679],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_bd04e74d9f387450cf1fa8ca2cd84823 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_599c4d97b938fcef7a0e0cf020de9865 = $(`<div id="html_599c4d97b938fcef7a0e0cf020de9865" style="width: 100.0%; height: 100.0%;"><b>KOGA</b> — Ogalla/Searle Fld, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KOGA 112235Z AUTO 30015KT 10SM CLR 18/M02 A2977 RMK AO2 T01751025</pre></div>`)[0];
+                popup_bd04e74d9f387450cf1fa8ca2cd84823.setContent(html_599c4d97b938fcef7a0e0cf020de9865);
+            
+        
+
+        circle_marker_88ec5c33975454239f4d99571457e43c.bindPopup(popup_bd04e74d9f387450cf1fa8ca2cd84823)
+        ;
+
+        
+    
+    
+            var circle_marker_ba6435e3cfc82ae8ebef93b1168790bf = L.circleMarker(
+                [41.9646, -100.5687],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_a875fb65cf70c742abe168e6d65e5c39 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_636369091f50c1571f2edf323c949c2a = $(`<div id="html_636369091f50c1571f2edf323c949c2a" style="width: 100.0%; height: 100.0%;"><b>KTIF</b> — Thedford/Thomas Cnty, NE, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KTIF 112235Z AUTO 03010KT 10SM BKN110 09/03 A2975 RMK AO2 T00920032</pre></div>`)[0];
+                popup_a875fb65cf70c742abe168e6d65e5c39.setContent(html_636369091f50c1571f2edf323c949c2a);
+            
+        
+
+        circle_marker_ba6435e3cfc82ae8ebef93b1168790bf.bindPopup(popup_a875fb65cf70c742abe168e6d65e5c39)
+        ;
+
+        
+    
+    
+            var circle_marker_b3aa4564ce1af3c0464ceff84aa2568e = L.circleMarker(
+                [40.5716, -102.2768],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_9ff28b390bd7a24d9eca891a16600109 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_be6c9c61edf0727948433061937a75ec = $(`<div id="html_be6c9c61edf0727948433061937a75ec" style="width: 100.0%; height: 100.0%;"><b>KHEQ</b> — Holyoke Arpt, CO, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KHEQ 112235Z AUTO 34018G26KT 10SM CLR 18/M05 A2981 RMK AO2</pre></div>`)[0];
+                popup_9ff28b390bd7a24d9eca891a16600109.setContent(html_be6c9c61edf0727948433061937a75ec);
+            
+        
+
+        circle_marker_b3aa4564ce1af3c0464ceff84aa2568e.bindPopup(popup_9ff28b390bd7a24d9eca891a16600109)
+        ;
+
+        
+    
+    
+            var circle_marker_edd3d406c938c405fab5faf45e92f2c5 = L.circleMarker(
+                [43.7653, -99.3163],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_1ddb4ff036fe47bf7195e4fec0b9c98f = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_1f620184f2a5c695cbedc5842fed7dc6 = $(`<div id="html_1f620184f2a5c695cbedc5842fed7dc6" style="width: 100.0%; height: 100.0%;"><b>K9V9</b> — Chamberlain Muni, SD, US<br><b>Flight Cat:</b> IFR<br><pre style='white-space:pre-wrap'>METAR K9V9 112235Z AUTO 02003KT 2 1/2SM -SN BKN006 OVC011 M01/M01 A2987 RMK AO2 P0001 T10111011</pre></div>`)[0];
+                popup_1ddb4ff036fe47bf7195e4fec0b9c98f.setContent(html_1f620184f2a5c695cbedc5842fed7dc6);
+            
+        
+
+        circle_marker_edd3d406c938c405fab5faf45e92f2c5.bindPopup(popup_1ddb4ff036fe47bf7195e4fec0b9c98f)
+        ;
+
+        
+    
+    
+            var circle_marker_8328354dc0cea6cc0701113945191d5e = L.circleMarker(
+                [42.9895, -96.1645],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_d236cbef73b7232794db1ba5492baffa = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ada16d79c930137c023ef72b4d9da9a7 = $(`<div id="html_ada16d79c930137c023ef72b4d9da9a7" style="width: 100.0%; height: 100.0%;"><b>KSXK</b> — Maurice/Sioux Cnty Rgnl, IA, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KSXK 112235Z AUTO 10010KT 10SM BKN060 OVC070 M07/M08 A2985 RMK AO2</pre></div>`)[0];
+                popup_d236cbef73b7232794db1ba5492baffa.setContent(html_ada16d79c930137c023ef72b4d9da9a7);
+            
+        
+
+        circle_marker_8328354dc0cea6cc0701113945191d5e.bindPopup(popup_d236cbef73b7232794db1ba5492baffa)
+        ;
+
+        
+    
+    
+            var circle_marker_a8d8cda7a3e1b3587167487b3295a2f0 = L.circleMarker(
+                [45.1111, -95.1258],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_6a01838ee3966f0d404e666c2bb1b185 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_af462d753c5d103cf4441df123946197 = $(`<div id="html_af462d753c5d103cf4441df123946197" style="width: 100.0%; height: 100.0%;"><b>KBDH</b> — Willmar Muni, MN, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR KBDH 112235Z AUTO 10005KT 10SM BKN050 OVC060 M09/M10 A2996 RMK AO2</pre></div>`)[0];
+                popup_6a01838ee3966f0d404e666c2bb1b185.setContent(html_af462d753c5d103cf4441df123946197);
+            
+        
+
+        circle_marker_a8d8cda7a3e1b3587167487b3295a2f0.bindPopup(popup_6a01838ee3966f0d404e666c2bb1b185)
+        ;
+
+        
+    
+    
+            var circle_marker_ceb8010a864cc124b0dcddf7e6e2c944 = L.circleMarker(
+                [40.1047, -102.7128],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_6ff0254bdda02116b63ae24a1c0348b3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_31b19bb7e581f0d5ccdad9dff3ca8869 = $(`<div id="html_31b19bb7e581f0d5ccdad9dff3ca8869" style="width: 100.0%; height: 100.0%;"><b>K2V6</b> — Yuma Muni, CO, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>METAR K2V6 112234Z AUTO 31022G30KT 10SM CLR 19/M07 A2985 RMK AO2</pre></div>`)[0];
+                popup_6ff0254bdda02116b63ae24a1c0348b3.setContent(html_31b19bb7e581f0d5ccdad9dff3ca8869);
+            
+        
+
+        circle_marker_ceb8010a864cc124b0dcddf7e6e2c944.bindPopup(popup_6ff0254bdda02116b63ae24a1c0348b3)
+        ;
+
+        
+    
+    
+            var circle_marker_3022f8ed7d3a07512c0e88114fcf862e = L.circleMarker(
+                [45.2249, -96.0041],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_6bf2ece8ffa5b4e432de4eacc4923708 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_7e5f10fdab635db1698232af0f825bf4 = $(`<div id="html_7e5f10fdab635db1698232af0f825bf4" style="width: 100.0%; height: 100.0%;"><b>KAQP</b> — Appleton Muni, MN, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>METAR KAQP 112233Z AUTO 00000KT 10SM OVC030 M07/M10 A2995 RMK AO2 TSNO</pre></div>`)[0];
+                popup_6bf2ece8ffa5b4e432de4eacc4923708.setContent(html_7e5f10fdab635db1698232af0f825bf4);
+            
+        
+
+        circle_marker_3022f8ed7d3a07512c0e88114fcf862e.bindPopup(popup_6bf2ece8ffa5b4e432de4eacc4923708)
+        ;
+
+        
+    
+    
+            var circle_marker_106d1e88d5b5fe72411b4612ed128631 = L.circleMarker(
+                [43.6525, -95.5759],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_f05e4fff06403a9e19d9e0bb07ce74c9 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d473cc6e6b4a914e625c71a374a054d8 = $(`<div id="html_d473cc6e6b4a914e625c71a374a054d8" style="width: 100.0%; height: 100.0%;"><b>KOTG</b> — Worthington Muni, MN, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>SPECI KOTG 112232Z AUTO 10009KT 9SM -SN FEW008 BKN017 OVC085 M08/M10 A2987 RMK AO2 P0000 FZRANO</pre></div>`)[0];
+                popup_f05e4fff06403a9e19d9e0bb07ce74c9.setContent(html_d473cc6e6b4a914e625c71a374a054d8);
+            
+        
+
+        circle_marker_106d1e88d5b5fe72411b4612ed128631.bindPopup(popup_f05e4fff06403a9e19d9e0bb07ce74c9)
+        ;
+
+        
+    
+    
+            var circle_marker_b39b9a038c41672fe008390ce76f105f = L.circleMarker(
+                [42.9141, -97.3807],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_9021632271d868f133be409456fdfe67 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_02b81e0a37db8fa1d11dd8bdad85ae21 = $(`<div id="html_02b81e0a37db8fa1d11dd8bdad85ae21" style="width: 100.0%; height: 100.0%;"><b>KYKN</b> — Yankton/Gurney Muni, SD, US<br><b>Flight Cat:</b> IFR<br><pre style='white-space:pre-wrap'>SPECI KYKN 112232Z AUTO 09007KT 2 1/2SM -SN BR OVC006 M03/M04 A2985 RMK AO2 UPB05E25SNE05B13E23B25 CIG 004V009 P0000 FZRANO</pre></div>`)[0];
+                popup_9021632271d868f133be409456fdfe67.setContent(html_02b81e0a37db8fa1d11dd8bdad85ae21);
+            
+        
+
+        circle_marker_b39b9a038c41672fe008390ce76f105f.bindPopup(popup_9021632271d868f133be409456fdfe67)
+        ;
+
+        
+    
+    
+            var circle_marker_ce6a8d986e79c5a0b45307a89aa7401d = L.circleMarker(
+                [43.7743, -98.0384],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_0083e3370c5f603ca3167dc4835db22e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_36c91b1b245eb07898005ee07685c8ac = $(`<div id="html_36c91b1b245eb07898005ee07685c8ac" style="width: 100.0%; height: 100.0%;"><b>KMHE</b> — Mitchell Muni, SD, US<br><b>Flight Cat:</b> IFR<br><pre style='white-space:pre-wrap'>SPECI KMHE 112226Z AUTO 12006KT 2 1/2SM -SN BR BKN050 OVC070 M04/M06 A2986 RMK AO2 SNE04B14 P0000 T10441056</pre></div>`)[0];
+                popup_0083e3370c5f603ca3167dc4835db22e.setContent(html_36c91b1b245eb07898005ee07685c8ac);
+            
+        
+
+        circle_marker_ce6a8d986e79c5a0b45307a89aa7401d.bindPopup(popup_0083e3370c5f603ca3167dc4835db22e)
+        ;
+
+        
+    
+    
+            var circle_marker_ab901fa0c981dc57a53f9553b88a36a5 = L.circleMarker(
+                [44.2184, -93.9179],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_4714f49d7787aa95bc13f98303ee7815 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_8323619a54502807e33d0fbbe394e07f = $(`<div id="html_8323619a54502807e33d0fbbe394e07f" style="width: 100.0%; height: 100.0%;"><b>KMKT</b> — Mankato Rgnl, MN, US<br><b>Flight Cat:</b> VFR<br><pre style='white-space:pre-wrap'>SPECI KMKT 112225Z AUTO 10006KT 10SM SCT015 OVC060 M07/M09 A2996 RMK AO2 FZRANO</pre></div>`)[0];
+                popup_4714f49d7787aa95bc13f98303ee7815.setContent(html_8323619a54502807e33d0fbbe394e07f);
+            
+        
+
+        circle_marker_ab901fa0c981dc57a53f9553b88a36a5.bindPopup(popup_4714f49d7787aa95bc13f98303ee7815)
+        ;
+
+        
+    
+    
+            var circle_marker_bf0b71ab5eb2d1376a578add82438dda = L.circleMarker(
+                [43.6525, -95.5759],
+                {"bubblingMouseEvents": true, "color": "#2b6cb0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b6cb0", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bb1fbaf3126ed09d048a501a42bdc2fe);
+        
+    
+        var popup_92cbf5ac1b37301e3e7e62220378b386 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9e4fde7fc7834480da1ecdfb97fc46b0 = $(`<div id="html_9e4fde7fc7834480da1ecdfb97fc46b0" style="width: 100.0%; height: 100.0%;"><b>KOTG</b> — Worthington Muni, MN, US<br><b>Flight Cat:</b> MVFR<br><pre style='white-space:pre-wrap'>SPECI KOTG 112221Z AUTO 09009KT 9SM -SN BKN017 BKN075 OVC090 M08/M10 A2987 RMK AO2 PRESRR P0000 FZRANO</pre></div>`)[0];
+                popup_92cbf5ac1b37301e3e7e62220378b386.setContent(html_9e4fde7fc7834480da1ecdfb97fc46b0);
+            
+        
+
+        circle_marker_bf0b71ab5eb2d1376a578add82438dda.bindPopup(popup_92cbf5ac1b37301e3e7e62220378b386)
+        ;
+
+        
+    
+    
+            feature_group_bb1fbaf3126ed09d048a501a42bdc2fe.addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+            var feature_group_eb78992e21dba8f54c1e84788fd5fbe7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_b090f25c293dc9b24386bc0ed11ac026 = L.circleMarker(
+                [44.1627, -93.3212],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_e9e0c60330b27d59d266e2bd5e6e40af = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_233881cbc8deb2aade74d24ed8c12979 = $(`<div id="html_233881cbc8deb2aade74d24ed8c12979" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 75<br>TB:  | ICE: LGT-MOD<br>Time: 1765493400<br><pre style='white-space:pre-wrap'>MSP UA /OV FBL180010/TM 2250/FL075/TP C68A/SK OVC075-TOP105/TA UNKN/IC LGT-MOD RIME/RM DURD</pre></div>`)[0];
+                popup_e9e0c60330b27d59d266e2bd5e6e40af.setContent(html_233881cbc8deb2aade74d24ed8c12979);
+            
+        
+
+        circle_marker_b090f25c293dc9b24386bc0ed11ac026.bindPopup(popup_e9e0c60330b27d59d266e2bd5e6e40af)
+        ;
+
+        
+    
+    
+            var circle_marker_81fe258730ab834b26ed1b65780a42d9 = L.circleMarker(
+                [39.8125, -104.6607],
+                {"bubblingMouseEvents": true, "color": "#7fbf7b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7fbf7b", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_35bf7e98670074223687112eff2f208c = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_a06df6d8d8852bf0edec6e2f626a9c71 = $(`<div id="html_a06df6d8d8852bf0edec6e2f626a9c71" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: <br>TB: LGT | ICE: <br>Time: 1765493340<br><pre style='white-space:pre-wrap'>DEN UA /OV DEN/TM 2249/FLDURGD/TP B738/TB LGT CHOP/RM DURD RY35L DEN</pre></div>`)[0];
+                popup_35bf7e98670074223687112eff2f208c.setContent(html_a06df6d8d8852bf0edec6e2f626a9c71);
+            
+        
+
+        circle_marker_81fe258730ab834b26ed1b65780a42d9.bindPopup(popup_35bf7e98670074223687112eff2f208c)
+        ;
+
+        
+    
+    
+            var circle_marker_e17882aa16f725d151f2466b574ffd07 = L.circleMarker(
+                [42.3333, -96.3167],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_9e13619dcd929e266de978951864ca08 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_14fa02e29fa576ce6af56f38ea08bd36 = $(`<div id="html_14fa02e29fa576ce6af56f38ea08bd36" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 300<br>TB: NEG | ICE: <br>Time: 1765493100<br><pre style='white-space:pre-wrap'>ARP UAL1577 4220N 09619W 2245 F300 M44 304/126 TB NONE SK CLEAR IC NONE</pre></div>`)[0];
+                popup_9e13619dcd929e266de978951864ca08.setContent(html_14fa02e29fa576ce6af56f38ea08bd36);
+            
+        
+
+        circle_marker_e17882aa16f725d151f2466b574ffd07.bindPopup(popup_9e13619dcd929e266de978951864ca08)
+        ;
+
+        
+    
+    
+            var circle_marker_9d9685c395b2906cb4549eb8dde152ae = L.circleMarker(
+                [40.4541, -100.9236],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_029fe6a8dc9aa78cd4115ce90be526bd = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_3d7b82adccf3d0f3cf84ab6c93ea0402 = $(`<div id="html_3d7b82adccf3d0f3cf84ab6c93ea0402" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 450<br>TB: NEG | ICE: <br>Time: 1765493040<br><pre style='white-space:pre-wrap'>MCK UA /OV HCT/TM 2244/FL450/TP GLF6/TB NEG/RM ZDVWC-</pre></div>`)[0];
+                popup_029fe6a8dc9aa78cd4115ce90be526bd.setContent(html_3d7b82adccf3d0f3cf84ab6c93ea0402);
+            
+        
+
+        circle_marker_9d9685c395b2906cb4549eb8dde152ae.bindPopup(popup_029fe6a8dc9aa78cd4115ce90be526bd)
+        ;
+
+        
+    
+    
+            var circle_marker_e3b7ec5fb5bbbb53afb00d7a8a236899 = L.circleMarker(
+                [39.8125, -104.6607],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_774f861e16deb21ce7e9bdd88051e5df = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_44235ad6eab939776da289c16a5c5596 = $(`<div id="html_44235ad6eab939776da289c16a5c5596" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 410<br>TB: NEG | ICE: <br>Time: 1765493040<br><pre style='white-space:pre-wrap'>DEN UA /OV DEN/TM 2244/FL410/TP E550/TB NEG/RM ZDVWC-</pre></div>`)[0];
+                popup_774f861e16deb21ce7e9bdd88051e5df.setContent(html_44235ad6eab939776da289c16a5c5596);
+            
+        
+
+        circle_marker_e3b7ec5fb5bbbb53afb00d7a8a236899.bindPopup(popup_774f861e16deb21ce7e9bdd88051e5df)
+        ;
+
+        
+    
+    
+            var circle_marker_ab28b893dd00103e92cb86b5a092ea1e = L.circleMarker(
+                [39.913, -105.139],
+                {"bubblingMouseEvents": true, "color": "#7fbf7b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7fbf7b", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_a943052e1d26b5040f8afef3faa95500 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_806f5265cefdc9dbaeb1668273c16238 = $(`<div id="html_806f5265cefdc9dbaeb1668273c16238" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 59<br>TB: LGT | ICE: <br>Time: 1765493040<br><pre style='white-space:pre-wrap'>BJC UA /OV BJC/TM 2244/FL059/TP GL7T/TB CONT LGT DURGD/RM FA 30R BJC</pre></div>`)[0];
+                popup_a943052e1d26b5040f8afef3faa95500.setContent(html_806f5265cefdc9dbaeb1668273c16238);
+            
+        
+
+        circle_marker_ab28b893dd00103e92cb86b5a092ea1e.bindPopup(popup_a943052e1d26b5040f8afef3faa95500)
+        ;
+
+        
+    
+    
+            var circle_marker_5e73b96385729f6a8e0e9e625fcb2d42 = L.circleMarker(
+                [41.0487, -100.7471],
+                {"bubblingMouseEvents": true, "color": "#7fbf7b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7fbf7b", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_916074c00626819e9b1d2a45aba004cd = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_b794f4cb880ea716cf5cfa963aacd05e = $(`<div id="html_b794f4cb880ea716cf5cfa963aacd05e" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 150<br>TB: LGT | ICE: NEG<br>Time: 1765493040<br><pre style='white-space:pre-wrap'>LBF UA /OV LBF/TM 2244/FL150/TP BE20/SK SKC/TB LGT/IC NEG/RM ZDVWC-</pre></div>`)[0];
+                popup_916074c00626819e9b1d2a45aba004cd.setContent(html_b794f4cb880ea716cf5cfa963aacd05e);
+            
+        
+
+        circle_marker_5e73b96385729f6a8e0e9e625fcb2d42.bindPopup(popup_916074c00626819e9b1d2a45aba004cd)
+        ;
+
+        
+    
+    
+            var circle_marker_4d78d5c078949dcba400a33d109e36c3 = L.circleMarker(
+                [44.8977, -93.2834],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_cda4ffdcada84617d91b3bcc5ab8488d = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_037674701a2c5d8dff7ff70c6cb9a724 = $(`<div id="html_037674701a2c5d8dff7ff70c6cb9a724" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: <br>TB:  | ICE: <br>Time: 1765492980<br><pre style='white-space:pre-wrap'>MSP UA /OV MSP270002/TM 2243/FLDURGD/TP CRJ7/SK 017 OVC</pre></div>`)[0];
+                popup_cda4ffdcada84617d91b3bcc5ab8488d.setContent(html_037674701a2c5d8dff7ff70c6cb9a724);
+            
+        
+
+        circle_marker_4d78d5c078949dcba400a33d109e36c3.bindPopup(popup_cda4ffdcada84617d91b3bcc5ab8488d)
+        ;
+
+        
+    
+    
+            var circle_marker_5d6b11459befec10172777d92f220d6a = L.circleMarker(
+                [43.6551, -95.5792],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_d8dfbac2ef8f291906672ca3fbadeddb = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_e752135547a18c38e563c54a5a44c6dd = $(`<div id="html_e752135547a18c38e563c54a5a44c6dd" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 260<br>TB: MOD | ICE: <br>Time: 1765492860<br><pre style='white-space:pre-wrap'>OTG UA /OV OTG/TM 2241/FL260/TP CRJ7/TB MOD CHOP</pre></div>`)[0];
+                popup_d8dfbac2ef8f291906672ca3fbadeddb.setContent(html_e752135547a18c38e563c54a5a44c6dd);
+            
+        
+
+        circle_marker_5d6b11459befec10172777d92f220d6a.bindPopup(popup_d8dfbac2ef8f291906672ca3fbadeddb)
+        ;
+
+        
+    
+    
+            var circle_marker_9bef6999f728951da63f07dd69d14c2d = L.circleMarker(
+                [39.5701, -104.8493],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_b4ff1de1cc6eb2433060a0d610ad8a58 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_e9e9a7c7ab168eaacce5acc0ff0d1b46 = $(`<div id="html_e9e9a7c7ab168eaacce5acc0ff0d1b46" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 59<br>TB:  | ICE: <br>Time: 1765492320<br><pre style='white-space:pre-wrap'>APA UA /OV FAP 35R/TM 2232/FL059/TP BE40/RM +/- 5 KTS LLWS OCCN LT CHOP DURD</pre></div>`)[0];
+                popup_b4ff1de1cc6eb2433060a0d610ad8a58.setContent(html_e9e9a7c7ab168eaacce5acc0ff0d1b46);
+            
+        
+
+        circle_marker_9bef6999f728951da63f07dd69d14c2d.bindPopup(popup_b4ff1de1cc6eb2433060a0d610ad8a58)
+        ;
+
+        
+    
+    
+            var circle_marker_0b7bbe4ad9c7404f9e6514111a0ac215 = L.circleMarker(
+                [43.4688, -97.4231],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_c552ba60d21dc3f91ff56d6e3626a109 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_e24a3a6664e46aabffde28252c53a1a4 = $(`<div id="html_e24a3a6664e46aabffde28252c53a1a4" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 190<br>TB:  | ICE: NEG<br>Time: 1765491720<br><pre style='white-space:pre-wrap'>FSD UA /OV FSD240030/TM 2222/FL190/TP A20N/SK TOP150/IC NEG/RM DURD FSD</pre></div>`)[0];
+                popup_c552ba60d21dc3f91ff56d6e3626a109.setContent(html_e24a3a6664e46aabffde28252c53a1a4);
+            
+        
+
+        circle_marker_0b7bbe4ad9c7404f9e6514111a0ac215.bindPopup(popup_c552ba60d21dc3f91ff56d6e3626a109)
+        ;
+
+        
+    
+    
+            var circle_marker_532684ea23d7eff8cdfc383eb40ff597 = L.circleMarker(
+                [43.6768, -93.0258],
+                {"bubblingMouseEvents": true, "color": "#7fbf7b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7fbf7b", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_d2b1a61259784c2b9d877bfb0a7f4398 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_14d0f3e3aa92f6ce45e385fd767a6c32 = $(`<div id="html_14d0f3e3aa92f6ce45e385fd767a6c32" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 280<br>TB: LGT | ICE: <br>Time: 1765491600<br><pre style='white-space:pre-wrap'>AEL UA /OV AEL090015/TM 2220/FL280/TP GA6C/TB CONS LGT CHOP 220-280</pre></div>`)[0];
+                popup_d2b1a61259784c2b9d877bfb0a7f4398.setContent(html_14d0f3e3aa92f6ce45e385fd767a6c32);
+            
+        
+
+        circle_marker_532684ea23d7eff8cdfc383eb40ff597.bindPopup(popup_d2b1a61259784c2b9d877bfb0a7f4398)
+        ;
+
+        
+    
+    
+            var circle_marker_792b9768518b5605eed84f3aa49e9ac3 = L.circleMarker(
+                [42.9921, -96.9234],
+                {"bubblingMouseEvents": true, "color": "#7fbf7b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7fbf7b", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_c35895913e7079ae17a988c938af55da = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_349acb626432d9471528bbaaed894458 = $(`<div id="html_349acb626432d9471528bbaaed894458" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 130<br>TB:  | ICE: LGT<br>Time: 1765491300<br><pre style='white-space:pre-wrap'>FSD UA /OV FSD180040/TM 2215/FL130/TP E170/SK TOP145/TA M12/IC LGT RIME 130/RM DURD FSD</pre></div>`)[0];
+                popup_c35895913e7079ae17a988c938af55da.setContent(html_349acb626432d9471528bbaaed894458);
+            
+        
+
+        circle_marker_792b9768518b5605eed84f3aa49e9ac3.bindPopup(popup_c35895913e7079ae17a988c938af55da)
+        ;
+
+        
+    
+    
+            var circle_marker_8fd2b230a00ee398b584165c9b1915df = L.circleMarker(
+                [41.0487, -100.7471],
+                {"bubblingMouseEvents": true, "color": "#7fbf7b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7fbf7b", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_f5ae74a82e68f8099af5a3face0ff783 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_73edc332572ed063c478fb486914c93c = $(`<div id="html_73edc332572ed063c478fb486914c93c" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 380<br>TB: LGT | ICE: <br>Time: 1765491180<br><pre style='white-space:pre-wrap'>LBF UA /OV LBF0900111/TM 2213/FL380/TP B738/TB CONS LGT CHOP OCNL LGT/RM ZDVWC-09</pre></div>`)[0];
+                popup_f5ae74a82e68f8099af5a3face0ff783.setContent(html_73edc332572ed063c478fb486914c93c);
+            
+        
+
+        circle_marker_8fd2b230a00ee398b584165c9b1915df.bindPopup(popup_f5ae74a82e68f8099af5a3face0ff783)
+        ;
+
+        
+    
+    
+            var circle_marker_42ac4f5dbd6c5e36b17dd9bc668232d4 = L.circleMarker(
+                [41.1195, -101.7697],
+                {"bubblingMouseEvents": true, "color": "#7fbf7b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7fbf7b", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_65d3d709251bd8c617ce303ab775f480 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_8ecbfdae038768bc9877fde53c916cb2 = $(`<div id="html_8ecbfdae038768bc9877fde53c916cb2" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 370<br>TB: LGT | ICE: <br>Time: 1765491000<br><pre style='white-space:pre-wrap'>OGA UA /OV OGA/TM 2210/FL370/TP A319/TB CONS LGT CHOP/RM ZDVWC-16</pre></div>`)[0];
+                popup_65d3d709251bd8c617ce303ab775f480.setContent(html_8ecbfdae038768bc9877fde53c916cb2);
+            
+        
+
+        circle_marker_42ac4f5dbd6c5e36b17dd9bc668232d4.bindPopup(popup_65d3d709251bd8c617ce303ab775f480)
+        ;
+
+        
+    
+    
+            var circle_marker_eb9bb1394101e865c7d458d1b1803dfb = L.circleMarker(
+                [42.5691, -99.9897],
+                {"bubblingMouseEvents": true, "color": "#7fbf7b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7fbf7b", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_decdc452b62cdce351e3f73db405cc7e = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_972db798244eeb5f4ffa021f05202aa0 = $(`<div id="html_972db798244eeb5f4ffa021f05202aa0" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 350<br>TB: LGT | ICE: <br>Time: 1765490880<br><pre style='white-space:pre-wrap'>ANW UA /OV ANW/TM 2208/FL350/TP CRJ2/TB OCNL LGT CHOP/RM ZDVWC-35</pre></div>`)[0];
+                popup_decdc452b62cdce351e3f73db405cc7e.setContent(html_972db798244eeb5f4ffa021f05202aa0);
+            
+        
+
+        circle_marker_eb9bb1394101e865c7d458d1b1803dfb.bindPopup(popup_decdc452b62cdce351e3f73db405cc7e)
+        ;
+
+        
+    
+    
+            var circle_marker_94a3e493811dbcf4486ac226c909b6b7 = L.circleMarker(
+                [41.8942, -103.482],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_c08ef5c227446781cdefa0d1115d1108 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_824b23bc48db61998d70dccf17e43d15 = $(`<div id="html_824b23bc48db61998d70dccf17e43d15" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 340<br>TB: NEG | ICE: <br>Time: 1765490820<br><pre style='white-space:pre-wrap'>BFF UA /OV BFF/TM 2207/FL340/TP E75L/TB NEG/RM ZDVWC-33</pre></div>`)[0];
+                popup_c08ef5c227446781cdefa0d1115d1108.setContent(html_824b23bc48db61998d70dccf17e43d15);
+            
+        
+
+        circle_marker_94a3e493811dbcf4486ac226c909b6b7.bindPopup(popup_c08ef5c227446781cdefa0d1115d1108)
+        ;
+
+        
+    
+    
+            var circle_marker_e05f7de4c4737e00ba46f706a1229b3a = L.circleMarker(
+                [44.9952, -93.1492],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_fc16dd82c134f22f5f1f99c369272655 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_b0f9f8b97fb78e6dfb045a67680475b9 = $(`<div id="html_b0f9f8b97fb78e6dfb045a67680475b9" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 50<br>TB: NEG | ICE: NEG<br>Time: 1765490760<br><pre style='white-space:pre-wrap'>MSP UA /OV MSP030007/TM 2206/FL050/TP B739/SK BKN050-TOP140/SKC/TB NEG/IC NEG/RM DURC</pre></div>`)[0];
+                popup_fc16dd82c134f22f5f1f99c369272655.setContent(html_b0f9f8b97fb78e6dfb045a67680475b9);
+            
+        
+
+        circle_marker_e05f7de4c4737e00ba46f706a1229b3a.bindPopup(popup_fc16dd82c134f22f5f1f99c369272655)
+        ;
+
+        
+    
+    
+            var circle_marker_705731eee707d2e09387df7d63d94589 = L.circleMarker(
+                [45.5493, -94.0586],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_73c4d663e1bfc793108f564b5b401290 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_57970798e8d94d05cb4379444c0a7575 = $(`<div id="html_57970798e8d94d05cb4379444c0a7575" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 40<br>TB: LGT-MOD | ICE: TRC<br>Time: 1765490580<br><pre style='white-space:pre-wrap'>STC UA /OV STC/TM 2203/FL040/TP PC12/TB OCNL LGT-MOD CHOP BLO 180/IC TRACE RIME BLO 180/RM DURD FROM NW</pre></div>`)[0];
+                popup_73c4d663e1bfc793108f564b5b401290.setContent(html_57970798e8d94d05cb4379444c0a7575);
+            
+        
+
+        circle_marker_705731eee707d2e09387df7d63d94589.bindPopup(popup_73c4d663e1bfc793108f564b5b401290)
+        ;
+
+        
+    
+    
+            var circle_marker_c545ea05515bff4b63c739439697b9a6 = L.circleMarker(
+                [43.777, -98.0376],
+                {"bubblingMouseEvents": true, "color": "#7fbf7b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7fbf7b", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_eb78992e21dba8f54c1e84788fd5fbe7);
+        
+    
+        var popup_552750a50bbe58bbcc05543f2b922d5f = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_e468865e06f1bb1e012999ec5e4ba551 = $(`<div id="html_e468865e06f1bb1e012999ec5e4ba551" style="width: 100.0%; height: 100.0%;"><b>PIREPs</b><br>FL: 50<br>TB:  | ICE: LGT<br>Time: 1765490520<br><pre style='white-space:pre-wrap'>MHE UA /OV MHE/TM 2202/FL050/TP DA50/TA M02/IC LGT RIME 080-070</pre></div>`)[0];
+                popup_552750a50bbe58bbcc05543f2b922d5f.setContent(html_e468865e06f1bb1e012999ec5e4ba551);
+            
+        
+
+        circle_marker_c545ea05515bff4b63c739439697b9a6.bindPopup(popup_552750a50bbe58bbcc05543f2b922d5f)
+        ;
+
+        
+    
+    
+            feature_group_eb78992e21dba8f54c1e84788fd5fbe7.addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+            var feature_group_3460d919b1259ecfd430a11079309435 = L.featureGroup(
+                {
+  "pane": "polys_mid",
+}
+            );
+        
+    
+        function geo_json_3dfc4a6f2c83f7fedb09decb8869e0d0_styler(feature) {
+            switch(feature.id) {
+                case "0": 
+                    return {"color": "#3388ff", "fillOpacity": 0.15, "weight": 2};
+                default:
+                    return {"color": "#fdae61", "fillOpacity": 0.15, "weight": 2};
+            }
+        }
+
+        function geo_json_3dfc4a6f2c83f7fedb09decb8869e0d0_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_3dfc4a6f2c83f7fedb09decb8869e0d0 = L.geoJson(null, {
+                onEachFeature: geo_json_3dfc4a6f2c83f7fedb09decb8869e0d0_onEachFeature,
+            
+                style: geo_json_3dfc4a6f2c83f7fedb09decb8869e0d0_styler,
+            ...{
+}
+        });
+
+        function geo_json_3dfc4a6f2c83f7fedb09decb8869e0d0_add (data) {
+            geo_json_3dfc4a6f2c83f7fedb09decb8869e0d0
+                .addData(data);
+        }
+            geo_json_3dfc4a6f2c83f7fedb09decb8869e0d0_add({"features": [{"geometry": {"coordinates": [[[-105.47, 42.86], [-104.79, 42.62], [-104.41, 41.38], [-105.2, 39.99], [-105.9, 39.94], [-105.83, 41.16], [-106.83, 41.81], [-105.47, 42.86]]], "type": "Polygon"}, "id": "0", "properties": {"forecast": 3, "hazard": "SFC_WND", "issueTime": "2025-12-11T20:45:00.000Z", "product": "TANGO", "receiptTime": "2025-12-11T20:30:46.286Z", "tag": "2W", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-113.91, 47.57], [-110.44, 46.96], [-108.08, 46], [-106.73, 45.38], [-107.1, 44.51], [-107.99, 43.42], [-106.56, 42.98], [-105.4, 43.96], [-104.69, 45.06], [-102.83, 45.37], [-100.83, 44.06], [-98.41, 42.3], [-97.24, 40.68], [-95.77, 39.68], [-93.09, 39.26], [-90.73, 38.17], [-90.6, 36.77], [-91.95, 35.78], [-94, 35.4], [-94.88, 36.36], [-94.8, 38.11], [-96.2, 39.06], [-98.7, 39.28], [-99.81, 39.31], [-101.94, 39.02], [-103.11, 38.6], [-104.21, 38.83], [-104.81, 38.29], [-104.47, 37.14], [-105.65, 36.77], [-107.37, 37.37], [-107.76, 38.21], [-107.77, 40.33], [-109.29, 40.98], [-111.06, 40.76], [-112.19, 41.76], [-112.2, 42.7], [-110.74, 43.48], [-111.4, 43.87], [-113.18, 44.32], [-114.58, 44.93], [-116.67, 44.76], [-117.64, 45.54], [-116.75, 46.86], [-113.91, 47.57]]], "type": "Polygon"}, "id": "1", "properties": {"forecast": 3, "hazard": "LLWS", "issueTime": "2025-12-11T20:45:00.000Z", "product": "TANGO", "receiptTime": "2025-12-11T20:30:46.286Z", "tag": "1W", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-105.16, 42.13], [-104.29, 41.01], [-103.85, 37.2], [-105.15, 35.43], [-106.07, 35.93], [-106.8, 39.37], [-108.22, 41.12], [-106.73, 41.73], [-105.16, 42.13]]], "type": "Polygon"}, "id": "2", "properties": {"base": "SFC", "forecast": 3, "hazard": "TURB-LO", "issueTime": "2025-12-11T20:45:00.000Z", "product": "TANGO", "receiptTime": "2025-12-11T20:30:46.286Z", "severity": "MOD", "tag": "1W", "top": "180", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-111.98, 46.83], [-101.25, 43.61], [-95.02, 37.91], [-94.89, 34.86], [-97.78, 33.92], [-105.04, 36.48], [-108.78, 41.15], [-111.98, 46.83]]], "type": "Polygon"}, "id": "3", "properties": {"base": "300", "forecast": 3, "hazard": "TURB-HI", "issueTime": "2025-12-11T20:45:00.000Z", "product": "TANGO", "receiptTime": "2025-12-11T20:30:46.286Z", "severity": "MOD", "tag": "3W", "top": "420", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-94.8, 49.22], [-89.94, 46.38], [-83.5, 42.27], [-80.86, 41.09], [-75.35, 37.86], [-73.71, 37.68], [-71.62, 39.37], [-66.95, 42.64], [-67.09, 38.91], [-72.57, 37.05], [-72.68, 34.97], [-76.97, 32.12], [-78.17, 31.56], [-79, 32.44], [-80.74, 33.66], [-88.17, 37.96], [-96.72, 42.65], [-105.07, 46.29], [-111.55, 48.9], [-104.23, 48.95], [-98.81, 48.98], [-94.8, 49.22]]], "type": "Polygon"}, "id": "4", "properties": {"base": "240", "forecast": 3, "hazard": "TURB-HI", "issueTime": "2025-12-11T20:45:00.000Z", "product": "TANGO", "receiptTime": "2025-12-11T20:30:46.286Z", "severity": "MOD", "tag": "1W", "top": "380", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_3dfc4a6f2c83f7fedb09decb8869e0d0.addTo(feature_group_3460d919b1259ecfd430a11079309435);
+        
+    
+            feature_group_3460d919b1259ecfd430a11079309435.addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+            var feature_group_445a81afcc47f796b9ad7346e1bfa79c = L.featureGroup(
+                {
+  "pane": "polys_mid",
+}
+            );
+        
+    
+        function geo_json_3d8980c0cc603776a359bf51880520ad_styler(feature) {
+            switch(feature.properties.product) {
+                default:
+                    return {"color": "#a6a6a6", "fillOpacity": 0.15, "weight": 2};
+            }
+        }
+
+        function geo_json_3d8980c0cc603776a359bf51880520ad_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_3d8980c0cc603776a359bf51880520ad = L.geoJson(null, {
+                onEachFeature: geo_json_3d8980c0cc603776a359bf51880520ad_onEachFeature,
+            
+                style: geo_json_3d8980c0cc603776a359bf51880520ad_styler,
+            ...{
+}
+        });
+
+        function geo_json_3d8980c0cc603776a359bf51880520ad_add (data) {
+            geo_json_3d8980c0cc603776a359bf51880520ad
+                .addData(data);
+        }
+            geo_json_3d8980c0cc603776a359bf51880520ad_add({"features": [{"geometry": {"coordinates": [[[-98.26, 49.08], [-97.69, 47.5], [-97.31, 46.06], [-96.51, 45.34], [-96.03, 45.21], [-94.34, 44.71], [-92.34, 43.94], [-91.66, 43.59], [-91.66, 43.25], [-90.91, 42.65], [-89.68, 41.78], [-88.53, 40.99], [-87.43, 40.16], [-86.7, 38.92], [-86.39, 38.45], [-85.34, 37.93], [-85.56, 37.64], [-86.82, 38.04], [-87.92, 38.42], [-88.36, 38.48], [-90.16, 39.59], [-91.55, 40.24], [-93.97, 41.61], [-95.24, 42.11], [-95.69, 42.31], [-96.55, 42.42], [-97.4, 42.79], [-98.42, 43.24], [-99.7, 43.6], [-100.37, 44.07], [-101.01, 44.69], [-101.84, 44.86], [-103.19, 46.27], [-104.13, 46.44], [-104.8, 46.13], [-105.59, 46.4], [-107.33, 46.9], [-107.71, 47.62], [-107.27, 48.78], [-104.53, 48.98], [-101.56, 49.03], [-98.26, 49.08]]], "type": "Polygon"}, "properties": {"dueTo": "CIG BLW 010/VIS BLW 3SM PCPN/BR", "forecast": 3, "hazard": "IFR", "issueTime": "2025-12-11T21:47:00.000Z", "product": "SIERRA", "receiptTime": "2025-12-11T21:48:16.653Z", "tag": "2E", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_3d8980c0cc603776a359bf51880520ad.addTo(feature_group_445a81afcc47f796b9ad7346e1bfa79c);
+        
+    
+            feature_group_445a81afcc47f796b9ad7346e1bfa79c.addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+            var feature_group_3ba6983e1b6121b1580f349483aacb23 = L.featureGroup(
+                {
+  "pane": "polys_mid",
+}
+            );
+        
+    
+        function geo_json_70f08ddec73bc07effcf5e085dba479b_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#74add1", "fillOpacity": 0.15, "weight": 2};
+            }
+        }
+
+        function geo_json_70f08ddec73bc07effcf5e085dba479b_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_70f08ddec73bc07effcf5e085dba479b = L.geoJson(null, {
+                onEachFeature: geo_json_70f08ddec73bc07effcf5e085dba479b_onEachFeature,
+            
+                style: geo_json_70f08ddec73bc07effcf5e085dba479b_styler,
+            ...{
+}
+        });
+
+        function geo_json_70f08ddec73bc07effcf5e085dba479b_add (data) {
+            geo_json_70f08ddec73bc07effcf5e085dba479b
+                .addData(data);
+        }
+            geo_json_70f08ddec73bc07effcf5e085dba479b_add({"features": [{"geometry": {"coordinates": [[[-94.92, 49.23], [-93.58, 48.64], [-93.07, 47.63], [-92.5, 46.73], [-91.6, 45.82], [-90.71, 45.01], [-89.94, 44.21], [-89.59, 43.61], [-89.54, 43.04], [-90.07, 42.62], [-91.39, 42.57], [-92.7, 42.77], [-97.97, 45.76], [-99.19, 47.63], [-98.69, 48.98], [-94.92, 49.23]]], "type": "Polygon"}, "id": "0", "properties": {"base": "SFC", "dueTo": "ICE", "forecast": 3, "hazard": "ICE", "issueTime": "2025-12-11T20:45:00.000Z", "product": "ZULU", "receiptTime": "2025-12-11T20:34:18.623Z", "severity": "MOD", "tag": "7C", "top": "100", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-101.42, 44.93], [-98.81, 44.19], [-96.38, 42.6], [-94.08, 40.89], [-91.9, 39.72], [-96.31, 40.52], [-98.89, 42.47], [-101.17, 43.3], [-101.95, 43.88], [-102.1, 44.67], [-101.42, 44.93]]], "type": "Polygon"}, "id": "1", "properties": {"base": "SFC", "forecast": 3, "hazard": "M_FZLVL", "issueTime": "2025-12-11T20:45:00.000Z", "product": "ZULU", "receiptTime": "2025-12-11T20:34:18.623Z", "tag": "1C", "top": "080", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}, {"geometry": {"coordinates": [[-132.87, 54.79], [-131.77, 54.57], [-130.71, 54.04], [-128.98, 52.95], [-127.41, 52.13], [-126.03, 50.92], [-123.66, 50.05], [-121.61, 49.47], [-120.91, 48.86], [-119.85, 49.04], [-118.9, 49.39], [-117.89, 49.21], [-115.08, 48.71], [-113.42, 47.84], [-112.66, 47.19], [-111.73, 46.93], [-109.77, 46.51], [-108.1, 46.5], [-106.58, 46.24], [-103.58, 46.52], [-102.5, 46.38], [-101.88, 45.96], [-100.79, 44.73], [-97.3, 42.46], [-95.91, 41.54], [-94.3, 40.69], [-92.06, 39.81], [-89.99, 39.21], [-85.96, 38.05], [-84.62, 36.63], [-83.21, 35.63], [-81.33, 35.9], [-79.69, 36.46], [-78.53, 36.75], [-77.45, 37.3], [-76.33, 38.64], [-73.62, 40.47], [-71.12, 41.2], [-69.35, 41.91], [-66.57, 43.95], [-65.52, 44.35], [-64.64, 44.99], [-64.24, 46.09], [-64.31, 46.73], [-64.17, 47.59], [-63.54, 48.21], [-61.87, 49.25], [-61.5, 49.96], [-60.84, 50.32], [-59.62, 50.61]], "type": "LineString"}, "id": "2", "properties": {"forecast": 3, "hazard": "FZLVL", "issueTime": "2025-12-11T20:45:00.000Z", "level": "SFC", "product": "ZULU", "receiptTime": "2025-12-11T20:34:18.623Z", "tag": "1C", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}, {"geometry": {"coordinates": [[-136.9, 48.61], [-133.4, 48.77], [-129.61, 48.72], [-126.07, 48.4], [-124.24, 48.14], [-122.01, 47.53], [-118.55, 47.1], [-114.2, 46.38], [-110.83, 45.78], [-109.13, 45.31], [-107.27, 44.46], [-105.68, 44.07], [-103.78, 43.76], [-102.01, 43.36], [-100.19, 42.61], [-98.54, 42.06], [-97.16, 41.43], [-94.08, 39.63], [-91.47, 38.43], [-90.48, 37.46], [-88.78, 36.33], [-87.92, 35.57], [-87.03, 34.51], [-85.88, 33.66], [-83.78, 32.95], [-82.51, 32.35], [-80.62, 31.85], [-78.86, 31.6], [-76.64, 31.47], [-74.79, 31.62], [-73.3, 32.03], [-71.7, 32.23], [-70.72, 32.45], [-69.85, 32.94], [-67.5, 34.4], [-66.23, 35.16], [-64.66, 35.85]], "type": "LineString"}, "id": "3", "properties": {"forecast": 3, "hazard": "FZLVL", "issueTime": "2025-12-11T20:45:00.000Z", "level": "080", "product": "ZULU", "receiptTime": "2025-12-11T20:34:18.623Z", "tag": "1C", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}, {"geometry": {"coordinates": [[-108.47, 46.43], [-107.18, 45.94], [-105.26, 45.83], [-103.53, 45.98], [-102.34, 45.58], [-100.44, 44.09], [-98.74, 43.1], [-96.41, 41.89], [-94.6, 40.74], [-93.77, 40.24], [-92.3, 39.61], [-90.5, 38.67], [-88.72, 37.33], [-84.44, 35.07], [-82.32, 34.9], [-79.94, 33.95], [-77.73, 33.18], [-76.37, 33.22], [-75.23, 33.81], [-73.2, 34.62], [-71.01, 35.8], [-69.34, 36.62], [-67.25, 38.09], [-63.34, 40.31]], "type": "LineString"}, "id": "4", "properties": {"forecast": 3, "hazard": "FZLVL", "issueTime": "2025-12-11T20:45:00.000Z", "level": "040", "product": "ZULU", "receiptTime": "2025-12-11T20:34:18.623Z", "tag": "1C", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}, {"geometry": {"coordinates": [[-135.26, 45.02], [-132.83, 45.19], [-129.77, 45.15], [-128.01, 45.09], [-126.16, 44.88], [-122.03, 44.17], [-114.65, 42.43], [-113.28, 41.74], [-112.4, 40.52], [-111.93, 39.98], [-110.89, 39.83], [-109.81, 40.1], [-109.13, 39.78], [-108.43, 38.23], [-108.08, 37.71], [-107.11, 37.46], [-106.14, 37.79], [-105.71, 38.42], [-104.83, 40.07], [-104.46, 40.49], [-103.74, 40.22], [-102.54, 39.46], [-98.78, 38.18], [-97.27, 37.72], [-95.88, 36.86], [-94.45, 36.14], [-93.22, 34.99], [-91.95, 33.91], [-90.67, 33.2], [-87.31, 31.77], [-84.39, 30.62], [-82.15, 30.16], [-79.42, 29.97], [-77.81, 29.52], [-75.69, 29.25], [-73.78, 29.53], [-71.48, 29.32], [-70.39, 29.35], [-69.69, 29.61], [-68.51, 30.26], [-65.69, 32]], "type": "LineString"}, "id": "5", "properties": {"forecast": 3, "hazard": "FZLVL", "issueTime": "2025-12-11T20:45:00.000Z", "level": "120", "product": "ZULU", "receiptTime": "2025-12-11T20:34:18.623Z", "tag": "1C", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-97.95, 45.78], [-92.66, 42.76], [-91.72, 42.15], [-91.08, 41.57], [-90.61, 40.94], [-90.59, 40.43], [-90.45, 39.9], [-90.96, 39.49], [-91.24, 39.25], [-92.38, 39.42], [-93.31, 40.27], [-94.16, 40.82], [-94.77, 41.23], [-95.44, 41.51], [-96.42, 42], [-97.48, 42.02], [-98.64, 42.36], [-99.54, 42.89], [-100.55, 43.64], [-101.51, 44.75], [-99.63, 45.1], [-97.95, 45.78]]], "type": "Polygon"}, "id": "6", "properties": {"base": "SFC", "dueTo": "ICE", "forecast": 3, "hazard": "ICE", "issueTime": "2025-12-11T20:45:00.000Z", "product": "ZULU", "receiptTime": "2025-12-11T20:34:18.623Z", "severity": "MOD", "tag": "3C", "top": "170", "validTime": "2025-12-12T00:00:00.000Z"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_70f08ddec73bc07effcf5e085dba479b.addTo(feature_group_3ba6983e1b6121b1580f349483aacb23);
+        
+    
+            feature_group_3ba6983e1b6121b1580f349483aacb23.addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+            var feature_group_b0958a30f85686701bf1ca00cb49ca6d = L.featureGroup(
+                {
+  "pane": "polys_mid",
+}
+            );
+        
+    
+        function geo_json_aeaa664d8995f7636ce8d417aa2f84e8_styler(feature) {
+            switch(feature.properties.alphaChar) {
+                default:
+                    return {"color": "#fdae61", "fillOpacity": 0.15, "weight": 2};
+            }
+        }
+
+        function geo_json_aeaa664d8995f7636ce8d417aa2f84e8_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_aeaa664d8995f7636ce8d417aa2f84e8 = L.geoJson(null, {
+                onEachFeature: geo_json_aeaa664d8995f7636ce8d417aa2f84e8_onEachFeature,
+            
+                style: geo_json_aeaa664d8995f7636ce8d417aa2f84e8_styler,
+            ...{
+}
+        });
+
+        function geo_json_aeaa664d8995f7636ce8d417aa2f84e8_add (data) {
+            geo_json_aeaa664d8995f7636ce8d417aa2f84e8
+                .addData(data);
+        }
+            geo_json_aeaa664d8995f7636ce8d417aa2f84e8_add({"features": [{"geometry": {"coordinates": [[[-112.819411100207, 47.197472602848], [-106.637274846842, 46.8480051388573], [-104.294577728786, 41.5647399500927], [-109.908778045983, 41.5865775714826], [-112.819411100207, 47.197472602848]]], "type": "Polygon"}, "properties": {"airSigmetType": "SIGMET", "alphaChar": "X", "altitudeHi1": null, "altitudeHi2": 14000, "altitudeLow1": 0, "altitudeLow2": null, "hazard": "TURB", "icaoId": "KSLC", "movementDir": null, "movementSpd": null, "rawAirSigmet": "WSUS05 KKCI 111922\nSLCX WS 111922\nSIGMET XRAY 9 VALID UNTIL 112321\nSIGMET \nID MT WY\nFROM 50NW HLN TO 40NW MLS TO 30NE CYS TO 40W OCS TO 50NW HLN\nOCNL SEV TURB BLW 140. DUE TO STG LOW LVL WNDS AND MTN WV ACT.\nRPTD BY ACFT. CONDS CONTG BYD 2321Z.", "seriesId": "XRAY 9", "severity": 5, "validTimeFrom": "2025-12-11T19:22:00.000Z", "validTimeTo": "2025-12-11T23:21:00.000Z"}, "type": "Feature"}, {"geometry": {"coordinates": [[[-104.294577728786, 41.5647399500927], [-104.039449188686, 38.1621571268502], [-107.04, 38.45], [-107.309999999988, 41.5171294963646], [-104.294577728786, 41.5647399500927]]], "type": "Polygon"}, "properties": {"airSigmetType": "SIGMET", "alphaChar": "R", "altitudeHi1": null, "altitudeHi2": 18000, "altitudeLow1": 0, "altitudeLow2": null, "hazard": "TURB", "icaoId": "KSLC", "movementDir": null, "movementSpd": null, "rawAirSigmet": "WSUS05 KKCI 112251\nSLCR WS 112251\nSIGMET ROMEO 20 VALID UNTIL 120251\nSIGMET \nWY CO\nFROM 30NE CYS TO 20ESE PUB TO HBU TO 60N CHE TO 30NE CYS\nOCNL SEV TURB BLW FL180. DUE TO STG LOW LVL WNDS AND MTN WV ACT.\nRPTD BY ACFT. CONDS CONTG BYD 0251Z.", "seriesId": "ROMEO 20", "severity": 5, "validTimeFrom": "2025-12-11T22:51:00.000Z", "validTimeTo": "2025-12-12T02:51:00.000Z"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_aeaa664d8995f7636ce8d417aa2f84e8.addTo(feature_group_b0958a30f85686701bf1ca00cb49ca6d);
+        
+    
+            feature_group_b0958a30f85686701bf1ca00cb49ca6d.addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+            var feature_group_4be4cbbe7454561b3e4ceae2dfda4d0b = L.featureGroup(
+                {
+  "pane": "polys_mid",
+}
+            );
+        
+    
+        function geo_json_6772569d596966474ef2c7439884f1ac_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return ;
+            }
+        }
+
+        function geo_json_6772569d596966474ef2c7439884f1ac_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_6772569d596966474ef2c7439884f1ac = L.geoJson(null, {
+                onEachFeature: geo_json_6772569d596966474ef2c7439884f1ac_onEachFeature,
+            
+                style: geo_json_6772569d596966474ef2c7439884f1ac_styler,
+            ...{
+}
+        });
+
+        function geo_json_6772569d596966474ef2c7439884f1ac_add (data) {
+            geo_json_6772569d596966474ef2c7439884f1ac
+                .addData(data);
+        }
+            geo_json_6772569d596966474ef2c7439884f1ac_add({"features": [], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_6772569d596966474ef2c7439884f1ac.addTo(feature_group_4be4cbbe7454561b3e4ceae2dfda4d0b);
+        
+    
+            feature_group_4be4cbbe7454561b3e4ceae2dfda4d0b.addTo(map_75161e23df413fef84e1b4fea6f35d36);
+        
+    
+            var layer_control_d619a75bb0c0425bfbfe8c6c9e25a946_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_3a9f34054d2c7af7673332ff7ba1a9a7,
+                },
+                overlays :  {
+                    "Route Corridor" : geo_json_0dd5c6c7668e72c1f56a927c992b84bc,
+                    "En-route METARs (flags)" : feature_group_bb1fbaf3126ed09d048a501a42bdc2fe,
+                    "PIREPs (\u22641.0h, \u2265LGT)" : feature_group_eb78992e21dba8f54c1e84788fd5fbe7,
+                    "G-AIRMET (Turb)" : feature_group_3460d919b1259ecfd430a11079309435,
+                    "G-AIRMET (IFR/Mtn)" : feature_group_445a81afcc47f796b9ad7346e1bfa79c,
+                    "G-AIRMET (Icing)" : feature_group_3ba6983e1b6121b1580f349483aacb23,
+                    "SIGMET (Domestic)" : feature_group_b0958a30f85686701bf1ca00cb49ca6d,
+                    "SIGMET (International)" : feature_group_4be4cbbe7454561b3e4ceae2dfda4d0b,
+                },
+            };
+            let layer_control_d619a75bb0c0425bfbfe8c6c9e25a946 = L.control.layers(
+                layer_control_d619a75bb0c0425bfbfe8c6c9e25a946_layers.base_layers,
+                layer_control_d619a75bb0c0425bfbfe8c6c9e25a946_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_75161e23df413fef84e1b4fea6f35d36);
+
+        
+</script>
+</html>

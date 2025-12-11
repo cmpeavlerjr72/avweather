@@ -4,3 +4,5 @@ shapely
 pyproj
 folium
 python-dateutil
+openai
+python-dotenv

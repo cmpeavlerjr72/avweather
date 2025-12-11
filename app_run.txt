@@ -1,0 +1,6 @@
+
+python app.py KMSP KDEN --cruise-fl 340 --pirep-age 1 --metar-hours 1 --pirep-corridor-buffer-nm 15 --out route.html
+
+
+#Calm Version
+python app.py KSAV KMSP --calm --cruise-fl 340 --pirep-age 1 --metar-hours 1 --pirep-corridor-buffer-nm 15 --out route.html
