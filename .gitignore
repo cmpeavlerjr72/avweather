@@ -1,0 +1,18 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+# Build
+dist/
+build/
+# Editor/OS
+.DS_Store
+*.swp
+.vscode/
+.idea/
